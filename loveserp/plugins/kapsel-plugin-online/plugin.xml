@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-online"
+    version="3.15.8">
+
+    <name>Online</name>
+    <description>Cordova Online Plugin</description>
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+	<dependency id="kapsel-plugin-corelibs" />
+
+	<asset target="errorHandling.js" src="errorHandling.js"/>
+    
+	<asset target="i18n.properties" src="i18n.properties"/>
+	<asset target="i18n_cs.properties" src="i18n_cs.properties"/>
+	<asset target="i18n_it.properties" src="i18n_it.properties"/>
+	<asset target="i18n_nb.properties" src="i18n_nb.properties"/>
+	<asset target="i18n_en.properties" src="i18n_en.properties"/>
+	<asset target="i18n_ar.properties" src="i18n_ar.properties"/>
+	<asset target="i18n_de.properties" src="i18n_de.properties"/>
+	<asset target="i18n_es.properties" src="i18n_es.properties"/>
+	<asset target="i18n_fr.properties" src="i18n_fr.properties"/>
+	<asset target="i18n_ja.properties" src="i18n_ja.properties"/>
+	<asset target="i18n_pt.properties" src="i18n_pt.properties"/>
+	<asset target="i18n_ru.properties" src="i18n_ru.properties"/>
+	<asset target="i18n_zh_CN.properties" src="i18n_zh_CN.properties"/>
+	<asset target="i18n_hu.properties" src="i18n_hu.properties"/>
+	<asset target="i18n_pl.properties" src="i18n_pl.properties"/>
+
+    <!-- Android -->
+	<platform name="android">
+       <js-module name="Online" src="www/online.js">
+            <clobbers target="sap.Online"/>
+	   </js-module>
+	   <asset target="CannotReachHost.html" src="CannotReachHost.html"/>
+	   <asset target="CertificateErrorPage.html" src="CertificateErrorPage.html"/>
+
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="Online">
+				<param name="android-package" value="com.sap.mp.cordova.plugins.online.Online"/>
+				<param name="onload" value="true"/>
+			</feature>
+            <preference name="ErrorUrl" value="file:///android_asset/www/CannotReachHost.html"/>
+		    <preference name="useBusyIndicator" value="false" />
+		</config-file>
+
+		<source-file src="android/libs/online-android-3.15.8.aar" target-dir="libs"/>
+		<framework src="android/smp_online.gradle" custom="true" type="gradleReference" />
+	</platform>
+
+    <!-- ios -->
+    <platform name="ios">
+       <js-module name="Online" src="www/online.js">
+            <clobbers target="sap.Online"/>
+	   </js-module>
+	   <asset target="CannotReachHost.html" src="CannotReachHost.html"/>
+	   <asset target="CertificateErrorPage.html" src="CertificateErrorPage.html"/>
+    
+    	<framework src="MobileCoreServices.framework"/>
+        <config-file target="config.xml" parent="/*">
+            <feature name="Online">
+                <param name="ios-package" value="SMPOnlinePlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+		    <preference name="useBusyIndicator" value="true" />
+        </config-file>
+        <source-file framework="true" src="ios/libs/libSMPOnlinePlugin.a"/>
+    </platform>
+    
+        <!-- Windows -->
+    <platform name="windows">
+       <asset src="windows/WindowsCannotReachHost.html" target="CannotReachHost.html"/>
+	   <asset src="windows/WindowsCertificateErrorPage.html" target="CertificateErrorPage.html"/>
+    </platform>
+</plugin>

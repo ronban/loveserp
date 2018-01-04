@@ -1,0 +1,17 @@
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+// Apply values after project's build-extras.gradle
+cdvPluginPostBuildExtras.add({
+    dependencies {
+        compile(name:'MAFLogonCore-3.15.6', ext:'aar')
+        compile(name:'MAFLogger-3.15.6', ext:'aar')
+        compile(name:'CommonCertificateProvider-3.15.6', ext:'aar')
+        compile(name:'AfariaProvider-3.15.6', ext:'aar')
+        compile(name:'XscriptParser-3.15.6', ext:'aar')
+        compile(name:'maflogoncorecdvplugin-3.15.8', ext:'aar')
+    }
+})

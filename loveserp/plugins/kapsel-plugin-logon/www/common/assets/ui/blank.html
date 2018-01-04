@@ -1,0 +1,40 @@
+<html>
+<head>
+<script type="text/javascript" charset="utf-8">
+var triggerEvent = function(actionId, valueString) {
+	// As long as we aren't on Windows, use triggerEventSecure
+	if (navigator.userAgent.indexOf("Win") < 0) {
+		triggerEventSecure(actionId, valueString);
+		return;
+	}
+
+	var href = '#' + actionId;
+	if(valueString) {
+		href = href + '+' + valueString;
+	}
+	window.location.href = href;
+};
+
+var identifier = 0;
+var eventsObject = {};
+// This function is secure in that the contents of the event are not put on the
+// URL, and so will not be logged if the webview logs the URL.  Instead the info
+// is retrieved by LogonJSView via executeScript.
+var triggerEventSecure = function(actionId, value) {
+	var href = '#EVENTOCCURRED+identifier=' + identifier;
+	var event = {
+		'actionId':actionId,
+		'info':value
+	};
+	eventsObject[identifier] = event;
+	window.location.href = href;
+	identifier++;
+};
+</script>
+</head>
+<body>
+<script type="text/javascript" charset="utf-8">
+setTimeout(function(){triggerEvent('READY');}, 1);
+</script>
+</body>
+</html>

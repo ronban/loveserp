@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-encryptedstorage"
+    version="3.15.8">
+
+	<name>EncryptedStorage</name>
+
+    <description>Provides an encrypted local storage mechanism to that allows a Hybrid SDK (Kapsel) application's private data to be stored on the user's device. The plugin adds an encrypted key/value pair storage option to Cordova, which uses the same API method signature as the browser’s local storage option and is nonblocking. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/7c1ce7f87006101482a8a8928c4038d4.html</description>
+
+    <author>SAP SE</author>
+
+    <license>SAP Mobile Platform SDK "License Agreement"</license>
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <dependency id="kapsel-plugin-corelibs" />
+    <dependency id="kapsel-plugin-inappbrowser" />
+	<dependency id="kapsel-plugin-logon"/>
+
+    <js-module name="Encrypted" src="www/encryptedstorage.js">
+		<clobbers target="sap.EncryptedStorage"/>
+	</js-module>
+    
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/widget">
+			<feature name="EncryptedStorage">
+				<param name="android-package" value="com.sap.mp.cordova.plugins.storage.EncryptedStorage"/>
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+		<source-file src="android/libs/encryptedstorage-android-3.15.8.aar" target-dir="libs"/>
+		<framework src="android/smp_encryptedstorage.gradle" custom="true" type="gradleReference" />
+	</platform>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/widget">
+			<feature name="EncryptedStorage">
+				<param name="ios-package" value="SMPEncryptedStoragePlugin"/>
+                <param name="onload" value="true" />
+			</feature>
+		</config-file>
+		<source-file framework="true" src="ios/libs/libSMPEncryptedStoragePlugin.a"/>
+		<framework src="libz.dylib"/>
+		<framework src="libsqlite3.dylib"/>
+		<framework src="Security.framework"/>
+	</platform>
+
+    <platform name="windows">
+        <config-file target="package.appxmanifest" parent="/Package/Capabilities">
+        </config-file>
+        <js-module src="windows/src/encryptedstorage_proxy_win.js" name="encryptedstorage_proxy_win">
+            <merges target="encryptedstorage_proxy_win" />
+        </js-module>
+		
+		<!-- WIN 10 -->
+		<resource-file src="windows/windows10/ARM/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows10\ARM\SAP.CoreLibs.dll" versions="&gt;8.1" arch="ARM" reference="true"/>
+		<resource-file src="windows/windows10/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows10\x86\SAP.CoreLibs.dll" versions="&gt;8.1" arch="x86" reference="true"/>
+		<resource-file src="windows/windows10/x64/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows10\x64\SAP.CoreLibs.dll" versions="&gt;8.1" arch="x64" reference="true"/>
+
+		<framework src="windows/windows10/ARM/UltraLite.winmd" target-dir="windows10/ARM" implementation="windows/windows10/ARM/UltraLite.dll" custom="true" versions="10.*" arch="ARM"/>
+		<framework src="windows/windows10/ARM/SAP.EncryptedStorage.winmd" target-dir="windows10/ARM" versions="&gt;8.1" arch="ARM"/>
+		
+		<framework src="windows/windows10/x86/UltraLite.winmd" target-dir="windows10/x86" implementation="windows/windows10/x86/UltraLite.dll" custom="true" versions="10.*" arch="x86"/>
+		<framework src="windows/windows10/x86/SAP.EncryptedStorage.winmd" target-dir="windows10/x86" versions="&gt;8.1" arch="x86"/>
+		
+		<framework src="windows/windows10/x64/UltraLite.winmd" target-dir="windows10/x64" implementation="windows/windows10/x64/UltraLite.dll" custom="true" versions="10.*" arch="x64"/>
+		<framework src="windows/windows10/x64/SAP.EncryptedStorage.winmd" target-dir="windows10/x64" versions="&gt;8.1" arch="x64"/>
+		
+		<!-- WIN 8.1 PHONE -->
+		<resource-file src="windows/windows81/wp/ARM/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows81\wp\ARM\SAP.CoreLibs.dll" versions="=8.1" arch="ARM" reference="true"/>	
+		<framework src="windows/windows81/wp/ARM/UltraLite.winmd" target-dir="windows10/ARM" implementation="windows/windows81/wp/ARM/UltraLite.dll" custom="true" versions="8.1" arch="ARM"/>
+		<framework src="windows/windows81/wp/ARM/SAP.EncryptedStorage.winmd" target-dir="windows81/wp/ARM" versions="=8.1" arch="ARM" target="phone"/>
+		
+		<resource-file src="windows/windows81/wp/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows81\wp\x86\SAP.CoreLibs.dll" versions="=8.1" arch="x86" reference="true"/>	
+		<framework src="windows/windows81/wp/x86/UltraLite.winmd" target-dir="windows10/x86" implementation="windows/windows81/wp/x86/UltraLite.dll" custom="true" versions="8.1" arch="x86" />
+		<framework src="windows/windows81/wp/x86/SAP.EncryptedStorage.winmd" target-dir="windows81/wp/x86" versions="=8.1" arch="x86" target="phone"/>
+		
+		<!-- WIN 8.1 WINDOWS -->
+		<resource-file src="windows/windows81/win/x64/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows81\win\x64\SAP.CoreLibs.dll" versions="=8.1" arch="x64" reference="true"/>
+		<framework src="windows/windows81/win/x64/UltraLite.winmd" target-dir="windows10/x64" implementation="windows/windows81/win/x64/UltraLite.dll" custom="true" versions="8.1" arch="x64" />
+		<framework src="windows/windows81/win/x64/SAP.EncryptedStorage.winmd" target-dir="windows81/win/x64" versions="=8.1" arch="x64" target="win"/>
+		
+		<resource-file src="windows/windows81/win/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-encryptedstorage\windows81\win\x86\SAP.CoreLibs.dll" versions="=8.1" arch="x86" reference="true"/>
+		<framework src="windows/windows81/win/x86/UltraLite.winmd" target-dir="windows10/x86" implementation="windows/windows81/win/x86/UltraLite.dll" custom="true" versions="8.1" arch="x86" />
+		<framework src="windows/windows81/win/x86/SAP.EncryptedStorage.winmd" target-dir="windows81/win/x86" versions="=8.1" arch="x86" target="win"/>
+	  
+		<lib-file src="Microsoft.VCLibs, Version=12.0" target="all"/>
+    </platform>
+</plugin>
+

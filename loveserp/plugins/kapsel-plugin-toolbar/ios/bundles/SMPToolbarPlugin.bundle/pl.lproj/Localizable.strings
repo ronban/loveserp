@@ -1,0 +1,15 @@
+﻿/* XBUT: Back button on toolbar */
+"SMPToolbarPluginBackText" = "Powrót";
+
+/* XBUT: Refresh button on toolbar */
+"SMPToolbarPluginRefreshText" = "Aktualizacja";
+
+/* XBUT: Home button on toolbar */
+"SMPToolbarPluginHomeText" = "Strona główna";
+
+/* XMIT: Help entry on menu */
+"SMPToolbarPluginHelpText" = "Pomoc";
+
+/* XBUT: Cancel button */
+"SMPToolbarPluginBtnCancel" = "Zaniechanie";
+

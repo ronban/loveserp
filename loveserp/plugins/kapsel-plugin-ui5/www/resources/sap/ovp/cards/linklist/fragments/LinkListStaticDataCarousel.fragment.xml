@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core" xmlns:ovp="sap.ovp.ui"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	<VBox>
+		<Carousel id="pictureCarousel" loop="true" class="sapOvpCardLinkListCarousel">
+			<pages>
+				<template:repeat list="{ovpCardProperties>/staticContent}" var="contentRow">
+					<VBox>
+						<template:if test="{= ${contentRow>title} || ${contentRow>subTitle}}">
+							<VBox
+								class="{= ${contentRow>title} || ${contentRow>subTitle} ? 'sapOvpCarouselContentHeader' : 'sapOvpCarouselContentHeader sapOvpCarouselHideContentHeader' }">
+								<template:if test="{contentRow>dataAction}">
+									<template:then>
+										<Link class="sapOvpCardLinkListTitle" text="{contentRow>title}" press="onLinkListActionPressLocalData"
+											app:dataAction="{contentRow>dataAction}" src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}"></Link>
+									</template:then>
+									<template:else>
+										<Link class="sapOvpCardLinkListTitle" text="{contentRow>title}" press="onLinkListItemPressLocalData"
+											app:targetUri="{contentRow>targetUri}" app:openInNewWindow="{contentRow>openInNewWindow}" src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}"></Link>
+									</template:else>
+								</template:if>
+								<Text class="sapOvpCardLinkListSubTitle" text="{contentRow>subTitle}"></Text>
+							</VBox>
+						</template:if>
+						<template:if test="{contentRow>dataAction}">
+							<template:then>
+								<template:if test="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'}">
+									<template:then>
+										<Image alt="{contentRow>imageAltText}" tooltip="{contentRow>toolTip}" press="onLinkListActionPressLocalData" app:dataAction="{contentRow>dataAction}" densityAware="true"
+											src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}" width="100%"></Image>
+									</template:then>
+									<template:else>
+										<core:Icon size="128px" src="{contentRow>imageUri}" tooltip="{contentRow>toolTip}" useIconTooltip="false" press="onLinkListActionPressLocalData" app:dataAction="{contentRow>dataAction}"/>
+									</template:else>
+								</template:if>
+							</template:then>
+							<template:else>
+								<template:if test="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'}">
+									<template:then>
+										<Image alt="{contentRow>imageAltText}" tooltip="{contentRow>toolTip}" app:targetUri="{contentRow>targetUri}" app:openInNewWindow="{contentRow>openInNewWindow}"
+											densityAware="true" press="onLinkListItemPressLocalData"
+											src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}" width="100%"></Image>
+									</template:then>
+									<template:else>
+										<core:Icon size="128px" src="{contentRow>imageUri}" tooltip="{contentRow>toolTip}" useIconTooltip="false" press="onLinkListItemPressLocalData" app:targetUri="{contentRow>targetUri}"
+											app:openInNewWindow="{contentRow>openInNewWindow}"/>
+									</template:else>
+								</template:if>
+							</template:else>
+						</template:if>
+					</VBox>
+				</template:repeat>
+			</pages>
+		</Carousel>
+	</VBox>
+</core:FragmentDefinition>

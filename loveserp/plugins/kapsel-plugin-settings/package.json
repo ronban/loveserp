@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-settings",
+  "version": "3.15.8",
+  "description": "Kapsel Settings Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-settings",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

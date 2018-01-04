@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-attachmentviewer",
+  "version": "3.15.8",
+  "description": "Kapsel Attachment Viewer Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-attachmentviewer",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

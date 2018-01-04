@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-ui5",
+  "version": "3.15.8",
+  "description": "Kapsel UI5 Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-ui5",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

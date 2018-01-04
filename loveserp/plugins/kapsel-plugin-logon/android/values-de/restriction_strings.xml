@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"Anwendungs-ID"</string>
+    <string name="restriction_description_appID">"App-ID, mit der die Anwendung in der Data-Vault identifiziert wird. Wenn Sie SMP verwenden, sollte die ID mit der App-ID der Zielanwendung übereinstimmen. Beachten Sie, dass dieser Wert nicht der Paketname ist. Der Paketname dient hauptsächlich zur Identifikation von Anwendungen in App Stores."</string>
+
+    <string name="restriction_title_fioriURL">"SAP-Fiori-Server-URL"</string>
+    <string name="restriction_description_fioriURL">"Vollständige URL der Zielanwendung. Wenn Ihre Anwendung SMP nicht verwendet, navigiert sie direkt zu dieser URL, wenn die Anmeldung abgeschlossen ist. Wenn Ihre Anwendung SAP Mobile Platform verwendet, wird diese URL geparst und wie folgt verwendet: 1. Das URL-Schema (das HTTP oder HTTPS sein muss) bestimmt den Initialwert des Kennzeichens \"https\" im Registrierungsdialog. Der Host und der Port in der URL bestimmen die entsprechenden Initialwerte im Registrierungsdialog. Wenn kein Port angegeben wird, wird standardmäßig der Port 443 verwendet. 2. Das URL-Suffix (alles nach Host und Port) wird an die URL angehängt, an der sich der Benutzer registriert. Obwohl es wahrscheinlich ist, dass die Werte für Schema, Host und Port dieselben wie in 1. sind, können die Benutzer diese Werte ändern. Das Suffix kann jedoch nicht verändert werden. Wenn Sie SMP verwenden, legen Sie Schema, Host und Port Ihres SMP-Servers fest und hängen das Suffix des SAP-Fiori-Endpoints an. Beispiel: \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"Anwendungsname"</string>
+     <string name="restriction_description_appName">"Zusätzliche Eigenschaft zum Festlegen des Namens der SAP-Fiori-Anwendung, der auf dem Anmeldebildschirm angezeigt wird. Der Standardname der App ist SAP Fiori Client. Dieser wird verwendet, wenn kein Name angegeben ist."</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"SMP-URL verweist auf SMP-Server"</string>
+     <string name="restriction_description_fioriURLIsSMP">"Wenn Sie die SMP verwenden, setzen Sie diesen Parameter auf \"true\", um die Registrierung durchzuführen."</string>
+
+     <string name="restriction_title_prefetch">"Prefetch-Web-Ressourcen"</string>
+     <string name="restriction_description_prefetch">"Ruft SAP-Fiori-App-Web-Ressourcen vom SAP-Fiori-Frontend-Server ab und lädt diese auf das Gerät eines Benutzers herunter. Nach dem ersten Download werden alle App-Aktualisierungen vom SAP-Fiori-Frontend-Server abgerufen und heruntergeladen."</string>
+
+    <string name="restriction_title_certificate">"Client-Zertifikatsanbieter"</string>
+    <string name="restriction_description_certificate">"Client-Zertifikatsanbieter"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"Client-Zertifikatsanbieter automatisch auswählen"</string>
+    <string name="restriction_description_autoSelectSingleCert">"Wenn nur ein Clientzertifikat verfügbar ist, wählen Sie dieses Zertifikat automatisch für die gegenseitige Authentifizierung aus."</string>
+
+    <string name="restriction_title_communicatorId">"Communicator-ID"</string>
+    <string name="restriction_description_communicatorId">"Communicator-ID für SMP-HCPms-Registrierung; Standard ist REST."</string>
+
+    <string name="restriction_title_keysize">"Schlüsselgröße für Afaria-Zertifikatsanbieter"</string>
+    <string name="restriction_description_keysize">"Optionales Argument für den Afaria-Zertifikatsanbieter. Dieses Argument legt die Bitrate der öffentlichen/privaten Schlüssel fest. Ein leerer oder ungültiger Wert erhält den Standardwert 2048."</string>
+
+    <string name="restriction_title_idpLogonURL">"URL für Identity-Provider-Anmeldung"</string>
+    <string name="restriction_description_idpLogonURL">"URL, die die Identity-Provider-Anmeldung mit dem von SAP Authenticator für SSO übergebenen Benutzernamen/App-Code neu lädt."</string>
+
+    <string name="restriction_title_enableCacheManager">"Cache-Manager aktivieren"</string>
+    <string name="restriction_description_enableCacheManager">"Aktiviert das Cache-Manager-Plugin."</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"Formular-Credentials sichern"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"Formular-Credentials dürfen gesichert und in der Zukunft vorausgefüllt werden."</string>
+
+    <string name="restriction_title_disablePasscode">"App-Code-Bild deaktivieren"</string>
+    <string name="restriction_description_disablePasscode">"Wenn wahr, wird das App-Code-Bild nicht angezeigt. Muss falsch sein, wenn mehrere Benutzer unterstützt werden."</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"App-Code-Richtlinie: Gültigkeitsdauer in Tagen"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"App-Code-Richtlinie: Muss Ziffern enthalten"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"App-Code-Richtlinie: Muss Kleinbuchstaben enthalten"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"App-Code-Richtlinie: Muss Sonderzeichen enthalten"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"App-Code-Richtlinie: Muss Großbuchstaben enthalten"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"App-Code-Richtlinie: App-Code-Option deaktivierbar"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"App-Code-Richtlinie: Sperr-Timeout"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"App-Code-Richtlinie: Mindestlänge"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"App-Code-Richtlinie: Mindestanzahl der unterschiedlichen Zeichen"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"App-Code-Richtlinie: Maximale Anzahl der Anmeldeversuche"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SMP verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"App-Code-Richtlinie: Fingerabdruck-Authentifizierung zulassen"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"App-Code-Richtlinie der Data-Vault. Hinweis: Wenn Sie SAP Mobile Platform verwenden, wird die App-Code-Richtlinie vom Server bestimmt."</string>
+
+    <string name="restriction_title_authType">"Berechtigungstyp"</string>
+    <string name="restriction_description_authType">"Legen Sie den Berechtigungstyp nur für OAuth (als oauth2) oder SAML (als saml2.web.post) fest."</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"OAuth-Berechtigungsendpunkt"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"URL, die dem Benutzer Berechtigung verleiht."</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"OAuth-Tokenendpunkt"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"URL, mit der die Token abgerufen werden."</string>
+
+    <string name="restriction_title_oauth2.grantType">"OAuth-Erteilungsart"</string>
+    <string name="restriction_description_oauth2.grantType">"Zu verwendende Erteilungsart."</string>
+
+    <string name="restriction_title_oauth2.clientID">"OAuth-Client-ID"</string>
+    <string name="restriction_description_oauth2.clientID">"Client-ID, die die Anwendung identifizierst."</string>
+</resources>

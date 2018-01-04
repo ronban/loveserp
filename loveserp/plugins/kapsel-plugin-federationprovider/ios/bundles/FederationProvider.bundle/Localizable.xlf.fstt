@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<file version="1.0" xmlns="http://www.sap.com/mlt/fstt/file/1.0" xmlns:smd="urn:x-sap:mlt:tsmetadata:1.0">
+	<metadata>
+	<!-- the object name -->
+	<smd:object-name>FederationProvider_iOS</smd:object-name>
+	</metadata>
+</file>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tiff Page View Controller-->
+        <scene sceneID="0Ug-36-zR9">
+            <objects>
+                <pageViewController storyboardIdentifier="tiffpageviewcontroller" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Pp9-U7-TkG" customClass="TiffPageViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ip2-A6-pXS"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0h-3x-yCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6588" y="-2800.7496251874063"/>
+        </scene>
+        <!--Tiff Image View Controller-->
+        <scene sceneID="fRW-1p-9Zn">
+            <objects>
+                <viewController storyboardIdentifier="tiffimageview" id="UKl-cN-oxF" customClass="TiffImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mPg-Wc-wS1"/>
+                        <viewControllerLayoutGuide type="bottom" id="yUo-tm-9p4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="apu-w9-UPc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9XZ-ks-LV6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9XZ-ks-LV6" firstAttribute="top" secondItem="mPg-Wc-wS1" secondAttribute="bottom" id="8X5-5f-8Q4"/>
+                            <constraint firstItem="9XZ-ks-LV6" firstAttribute="leading" secondItem="apu-w9-UPc" secondAttribute="leading" id="Lxv-l7-TWu"/>
+                            <constraint firstItem="yUo-tm-9p4" firstAttribute="top" secondItem="9XZ-ks-LV6" secondAttribute="bottom" id="w8x-Dz-fdq"/>
+                            <constraint firstAttribute="trailing" secondItem="9XZ-ks-LV6" secondAttribute="trailing" id="xkv-HX-9bH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="9XZ-ks-LV6" id="KsO-vc-ouc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5c-R8-4BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7388" y="-2800.7496251874063"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="219-Ud-orY">
+            <objects>
+                <navigationController storyboardIdentifier="tiffviewernav" automaticallyAdjustsScrollViewInsets="NO" id="0is-ia-ipv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kom-mL-0uB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pp9-U7-TkG" kind="relationship" relationship="rootViewController" id="aYZ-SV-cZ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cG7-te-fLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5648.8000000000002" y="-2800.7496251874063"/>
+        </scene>
+    </scenes>
+</document>

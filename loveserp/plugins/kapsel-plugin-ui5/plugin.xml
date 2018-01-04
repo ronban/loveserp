@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="kapsel-plugin-ui5" version="3.15.8">
+    <name>ui5</name>
+    <engines>
+        <engine name="cordova" version="&gt;=6.5.0"/>
+        <engine name="cordova-android" version="&gt;=6.1.2"/>
+        <engine name="cordova-ios" version="&gt;=4.3.1"/>
+    </engines>
+    <hook type="after_plugin_install" src="hooks/addUI5.js"/>
+    <hook type="after_prepare" src="hooks/addUI5.js"/>
+    <hook type="before_plugin_uninstall" src="hooks/removeUI5.js"/>
+</plugin>

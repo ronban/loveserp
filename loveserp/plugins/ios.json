@@ -1,0 +1,141 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-contacts": {
+            "CONTACTS_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "com.loves.fioriclient.xcallbackurl",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "de.appplant.cordova.plugin.printer": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-apppreferences": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-attachmentviewer": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-cachemanager": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-calendar": {
+            "CALENDARS_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-cdsprovider": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-encryptedstorage": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-federationprovider": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-fioriclient": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-inappbrowser-xwalk": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-logger": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-multidex": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-settings": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-toolbar": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-usage": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-voicerecording": {
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "cordova-plugin-privacyscreen": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "com.lampa.startapp": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-corelibs": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-i18n": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-authproxy": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-online": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-ui5": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        },
+        "kapsel-plugin-logon": {
+            "PACKAGE_NAME": "com.loves.fioriclient"
+        }
+    }
+}

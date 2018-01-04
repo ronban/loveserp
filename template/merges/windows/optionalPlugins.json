@@ -1,0 +1,55 @@
+﻿{
+	"_comment": "These are the optional plugins",
+	"plugins": [
+		{
+			"Name": "Camera",
+			"Id": "org.apache.cordova.camera",
+			"JSModule": "Camera, navigator.camera, CameraPopoverOptions, CameraPopoverHandle,CameraProxy"
+		},
+    {
+      "Name": "File",
+      "Id": "org.apache.cordova.file",
+      "JSModule": "window.DirectoryEntry, window.DirectoryReader, window.Entry, window.File, window.FileEntry, window.FileError, window.FileReader, window.FileSystem, window.FileUploadOptions, window.FileUploadResult, window.FileWriter, window.Flags, window.LocalFileSystem, window.Metadata, window.ProgressEvent, window.requestFileSystem, FileProxy"
+    },
+    {
+      "Name": "VoiceRecording",
+      "Id": "kapsel-plugin-voicerecording",
+      "JSModule": "sap.VoiceRecording,voicerecording_proxy_win"
+    },
+		{
+			"Name": "BarcodeScanner",
+			"Id": "com.phonegap.plugins.barcodescanner.BarcodeScanner",
+			"JSModule": "cordova.plugins.barcodeScanner, CameraHandler, ScannerProxy"
+		},
+		{
+			"Name": "AttachmentViewer",
+			"Id": "kapsel-plugin-attachmentviewer",
+			"JSModule": "sap.AttachmentViewer.Downloader, sap.AttachmentViewer.Utils, sap.AttachmentViewer.FileCleaner, sap.AttachmentViewer"
+		},
+		{
+			"Name": "InAppBrowser",
+			"Id": "kapsel-plugin-inappbrowser",
+			"JSModule": "cordova.InAppBrowser.open, window.open, InAppBrowserProxy"
+		},
+    {
+      "Name": "AuthProxy",
+      "Id": "kapsel-plugin-authproxy",
+      "JSModule": "sap.AuthProxy, AuthProxyPlugin"
+    },
+    {
+			"Name": "EncryptedStorage",
+			"Id": "kapsel-plugin-encryptedstorage",
+			"JSModule": "sap.EncryptedStorage,encryptedstorage_proxy_win"
+    },
+		{
+			"Name": "Logon",
+			"Id": "kapsel-plugin-encryptedstorage",
+			"JSModule": "sap.logon.Core, sap.logon.Utils, sap.logon.StaticScreens, sap.logon.DynamicScreens, sap.Logon, sap.logon.LogonJsView, logon_proxy_win, sap.logon"
+		},
+		{
+			"Name": "Usage",
+			"Id": "kapsel-plugin-encryptedstorage",
+			"JSModule": "sap.Usage, usage_proxy_win"
+		}
+	]
+}

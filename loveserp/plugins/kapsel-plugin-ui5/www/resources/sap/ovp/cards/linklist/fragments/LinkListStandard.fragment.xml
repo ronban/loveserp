@@ -1,0 +1,91 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ovp="sap.ovp.ui"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	<HBox id="ovpListRow" class="sapOvpLinkListStandardHBox">
+		<List id="ovpLinkList"
+			class="{= ${ovpCardProperties>/densityStyle} === 'cozy' ? 'sapOvpLinkListStandardPaddingCozy' : 'sapOvpLinkListStandardPaddingCompact'}"
+			showSeparators="None"
+			items="{parts:[{path:'entitySet>'}, {path:'ovpCardProperties>/annotationPath'}], formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatItems'}">
+			<CustomListItem id="ovpCLI">
+				<HBox
+					class="{= ${ovpCardProperties>/densityStyle} === 'compact' &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; (!${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}) ? 'sapOvpMarginTopBottom_3dot5' : ( ${ovpCardProperties>/densityStyle} === 'compact' || ${ovpCardProperties>/densityStyle} === 'cozy' ) &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} &amp;&amp; (!${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}) ? 'sapOvpMarginTopBottom_9' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; (!${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}) ? 'sapOvpMarginTopBottom_5dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} ? 'sapOvpMarginTopBottom_13dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} &amp;&amp; (!${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}) ? 'sapOvpMarginTopBottom_13dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ( ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} || ( !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} )) &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} &amp;&amp; ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} ? 'sapOvpMarginTopBottom_15dot5' : 'sapOvpMarginTopBottom_9dot5'}">
+					<template:if
+						test="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} || ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl}}">
+						<template:then>
+							<VBox class="sapOvpLinkListItem sapUiSmallMarginBegin">
+								<template:if
+									test="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}">
+									<template:then>
+										<template:if test="{= ${ovpCardProperties>/densityStyle} === 'cozy'}">
+											<template:then>
+												<FlexBox height="40px">
+													<Image alt="no picture" densityAware="true" width="40px" height="40px" class="sapUiSmallMarginEnd" backgroundPosition="center center"
+														mode="Background"
+														src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"></Image>
+												</FlexBox>
+											</template:then>
+											<template:else>
+												<FlexBox height="40px">
+													<Image alt="no picture" densityAware="true" width="36px" height="36px" class="sapUiSmallMarginEnd" backgroundPosition="center center"
+														mode="Background"
+														src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"></Image>
+												</FlexBox>
+											</template:else>
+										</template:if>
+									</template:then>
+									<template:else>
+										<FlexBox height="40px">
+											<core:Icon size="24px" class="sapUiMediumMarginEnd sapOvpLinkListImageCenter"
+												src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+										</FlexBox>
+									</template:else>
+								</template:if>
+							</VBox>
+						</template:then>
+					</template:if>
+					<VBox class="sapOvpLinkListItem">
+						<template:if
+							test="{path: 'entityType>com.sap.vocabularies.UI.v1.Identification/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+							<template:then>
+								<Link press="onLinkNavigationSingleTarget"
+									class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:then>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link press="onLinkListActionPress"
+									class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"
+									app:dataAction="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link target="_blank"
+									href="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatString'}"
+									class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.Communication.v1.Contact', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link press="onLinkPopover"
+									class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:else>
+								<Text
+									class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} || !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl} &amp;&amp; !${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:else>
+						</template:if>
+						<template:if test="{entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}">
+							<template:then>
+								<Label class="sapOvpCardLinkListSubTitle"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:then>
+						</template:if>
+					</VBox>
+				</HBox>
+			</CustomListItem>
+		</List>
+	</HBox>
+</core:FragmentDefinition>

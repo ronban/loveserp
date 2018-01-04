@@ -1,0 +1,108 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core" xmlns:ovp="sap.ovp.ui"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	<Carousel id="pictureCarousel" loop="true" class="sapOvpCardLinkListCarousel"
+		pages="{parts:[{path:'entitySet>'}, {path:'ovpCardProperties>/annotationPath'}], formatter: 'sap.ovp.cards.AnnotationHelper.formatItems'}">
+		<pages>
+			<VBox>
+				<template:if
+					test="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value}}">
+					<VBox
+						class="{= ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} || ${entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value} ? 'sapOvpCarouselContentHeader' : 'sapOvpCarouselContentHeader sapOvpCarouselHideContentHeader' }">
+						<template:if
+							test="{path: 'entityType>com.sap.vocabularies.UI.v1.Identification/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+							<template:then>
+								<Link class="sapOvpCardLinkListTitle " press="onLinkNavigationSingleTarget"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:then>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link class="sapOvpCardLinkListTitle" press="onLinkListActionPress"
+									app:dataAction="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link class="sapOvpCardLinkListTitle" target="_blank"
+									href="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatString'}"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.Communication.v1.Contact', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Link class="sapOvpCardLinkListTitle" press="onLinkPopover"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:else>
+								<Text class="sapOvpCardLinkListTitle"
+									text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:else>
+						</template:if>
+						<Text class="sapOvpCardLinkListSubTitle"
+							text="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/Description/Value', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+					</VBox>
+				</template:if>
+				<template:if
+					test="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}">
+					<template:then>
+						<template:if
+							test="{path: 'entityType>com.sap.vocabularies.UI.v1.Identification/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+							<template:then>
+								<Image id="ovpLinkLinstCarouselImg" alt="Example picture" densityAware="true" width="100%" press="onLinkNavigationSingleTarget"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:then>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Image id="ovpLinkLinstCarouselImg" alt="Example picture" densityAware="true" width="100%" press="onLinkListActionPress"
+									app:dataAction="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Image id="ovpLinkLinstCarouselImg" alt="Example picture" densityAware="true" width="100%" press="onLinkListItemPress"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.Communication.v1.Contact', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<Image id="ovpLinkLinstCarouselImg" alt="Example picture" densityAware="true" width="100%" press="onLinkPopover"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:elseif>
+							<template:else>
+								<Image id="ovpLinkLinstCarouselImg" alt="Example picture" densityAware="true" width="100%"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/ImageUrl', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"/>
+							</template:else>
+						</template:if>
+					</template:then>
+					<template:else>
+						<template:if
+							test="{path: 'entityType>com.sap.vocabularies.UI.v1.Identification/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+							<template:then>
+								<core:Icon width="100%" size="128px" press="onLinkNavigationSingleTarget"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+							</template:then>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<core:Icon width="100%" size="128px" press="onLinkListActionPress"
+									app:dataAction="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Action', formatter: 'sap.ui.model.odata.AnnotationHelper.format'}"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.UI.v1.LineItem/0/Url', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<core:Icon width="100%" size="128px" press="onLinkListItemPress"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+							</template:elseif>
+							<template:elseif
+								test="{path: 'entityType>com.sap.vocabularies.Communication.v1.Contact', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.linkedAction'}">
+								<core:Icon width="100%" size="128px" press="onLinkPopover"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+							</template:elseif>
+							<template:else>
+								<core:Icon width="100%" size="128px"
+									src="{path: 'entityType>com.sap.vocabularies.UI.v1.HeaderInfo/TypeImageUrl', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.getIconPath'}"/>
+							</template:else>
+						</template:if>
+					</template:else>
+				</template:if>
+			</VBox>
+		</pages>
+	</Carousel>
+</core:FragmentDefinition>

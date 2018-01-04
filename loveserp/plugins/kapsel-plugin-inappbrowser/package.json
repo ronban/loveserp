@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-inappbrowser",
+  "version": "3.15.8",
+  "description": "Kapsel InAppBrowser Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-inappbrowser",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "Apache Software Foundation & SAP SE"
+}

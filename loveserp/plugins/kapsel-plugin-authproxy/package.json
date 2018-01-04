@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-authproxy",
+  "version": "3.15.8",
+  "description": "Kapsel Auth Proxy Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-authproxy",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

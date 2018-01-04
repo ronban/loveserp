@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core" xmlns:lib="sap.ovp.cards.map.GeographicalMap"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns="sap.m" xmlns:vbm="sap.ui.vbm">
+	<!--Show Map-->
+	<template:if test="{entitySet>name}" >
+			<vbm:GeoMap id="oVBI" class="ovpImageContainer" width="100%" disableZoom="true" disablePan="true">
+				<vbm:Spots id="Spots" items="{= ${entitySet>name} ? '{/' + ${entitySet>name} + '}' : '' }">
+					<vbm:Spot id="Spot" position="{parts: ['Latitude', 'Longitude'], formatter: '.formatterGeo'}" labelPos="1" labelText="{parts: ['StreetName'], formatter: '.formatterLabelText'}"/>
+				</vbm:Spots>
+			</vbm:GeoMap>
+	</template:if>
+</core:FragmentDefinition>

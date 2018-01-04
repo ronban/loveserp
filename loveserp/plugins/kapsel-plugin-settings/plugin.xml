@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-settings"
+    version="3.15.8">
+
+	<name>Settings</name>
+
+  <description>Invokes the settings exchange API on the SAP Mobile Platform Server, which sends the Hybrid SDK (Kapsel) application connection settings to the server and downloads application settings from the server. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/7c1cf7ce70061014b5dbda8d053a135f.html</description>
+
+  <author>SAP SE</author>
+
+  <license>SAP Mobile Platform SDK "License Agreement"</license>
+
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <dependency id="kapsel-plugin-corelibs" />
+    <dependency id="kapsel-plugin-inappbrowser" />
+    <dependency id="kapsel-plugin-logon" />
+    <dependency id="kapsel-plugin-logger" />
+
+    <js-module name="Settings" src="www/settings.js">
+		<clobbers target="sap.Settings"/>
+	</js-module>
+
+    <js-module name="AppSettings" src="www/appsettings.js">
+		<merges target="sap.Settings"/>
+	</js-module>
+     <platform name="android">
+	<config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="SMPSettingsExchangePlugin" onload="true" >
+                <param name="android-package" value="com.sap.mp.settingsexchange.SettingsExchange" />
+            </feature>
+	</config-file>
+        <source-file src="android/libs/settingsexchange-android-3.15.8.aar" target-dir="libs"/>
+        <framework src="android/smp_settings.gradle" custom="true" type="gradleReference" />
+     </platform>
+
+     <platform name="ios">
+       <config-file target="config.xml" parent="/widget">
+          <feature name="SMPSettingsExchangePlugin" onload="true"  >
+                <param name="ios-package" value="SMPSettingsExchangePlugin" />
+            </feature>
+       </config-file>
+       <source-file framework="true" src="ios/libs/libSMPSettingsExchangePlugin.a"/>
+     </platform>
+
+	 <platform name="windows">
+		<js-module src="windows/src/settings_proxy_win.js" name="settings_proxy_win">
+          <merges target="settings_proxy_win" />
+        </js-module>
+	 </platform>
+
+</plugin>

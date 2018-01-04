@@ -1,0 +1,18 @@
+{
+  "name": "kapsel-plugin-calendar",
+  "version": "3.15.8",
+  "description": "Kapsel Calendar Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-calendar",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Eddy Verbruggen & SAP SE"
+}

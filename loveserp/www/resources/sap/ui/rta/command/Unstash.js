@@ -1,0 +1,6 @@
+/*
+ * ! SAP UI development toolkit for HTML5 (SAPUI5)
+
+(c) Copyright 2009-2016 SAP SE. All rights reserved
+ */
+sap.ui.define(['sap/ui/rta/command/FlexCommand',"sap/ui/fl/changeHandler/UnstashControl"],function(F,U){"use strict";var a=F.extend("sap.ui.rta.command.Unstash",{metadata:{library:"sap.ui.rta",properties:{changeType:{type:"string",defaultValue:"unstashControl"},parentAggregationName:{type:"string",defaultValue:""},index:{type:"integer",defaultValue:0}},associations:{},events:{}}});a.prototype.init=function(){this.setChangeHandler(U);};a.prototype._getForwardActionData=function(e){return this._getFlexChange(F.FORWARD);};a.prototype._getBackwardActionData=function(e){return this._getFlexChange(F.BACKWARD);};a.prototype._undoWithElement=function(e){e=sap.ui.getCore().byId(e.getId());this.setElement(e);e.setStashed(true);e.setVisible(false);};a.prototype._getFlexChange=function(f){return this._completeChangeContent({content:{parentAggregationName:this.getParentAggregationName(),index:this.getIndex()},changeType:this.getChangeType(),selectorElement:this._getElement(),selector:{id:this._getElement().getId()}});};a.prototype.serialize=function(){return{changeType:this.getChangeType(),selector:{id:this._getElement().getId()},content:{parentAggregationName:this.getParentAggregationName(),index:this.getIndex()}};};return a;},true);

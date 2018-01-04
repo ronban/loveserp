@@ -1,0 +1,15 @@
+﻿/* XBUT: Back button on toolbar */
+"SMPToolbarPluginBackText" = "前画面";
+
+/* XBUT: Refresh button on toolbar */
+"SMPToolbarPluginRefreshText" = "リフレッシュ";
+
+/* XBUT: Home button on toolbar */
+"SMPToolbarPluginHomeText" = "ホーム";
+
+/* XMIT: Help entry on menu */
+"SMPToolbarPluginHelpText" = "ヘルプ";
+
+/* XBUT: Cancel button */
+"SMPToolbarPluginBtnCancel" = "中止";
+

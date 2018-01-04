@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-logon",
+  "version": "3.15.8",
+  "description": "Kapsel Logon Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-logon",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

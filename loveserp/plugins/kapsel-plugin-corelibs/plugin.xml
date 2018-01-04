@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-corelibs"
+    version="3.15.8">
+
+	<name>CoreLibs</name>
+    
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <hook type="after_prepare" src="hooks/after_prepare/applyConfig.js"/>
+
+	<platform name="android">
+		<source-file src="android/libs/Common-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/Connectivity-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/ClientHubSLL-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/CoreServices-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/Request-3.15.6.aar" target-dir="libs"/>
+        <source-file src="android/libs/DataVaultLib-3.15.6.aar" target-dir="libs"/>
+        <source-file src="android/libs/ClientLog-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/SupportabilityFacade-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/HttpConversation-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/HttpConvAuthFlows-3.15.6.aar" target-dir="libs"/>
+		<source-file src="android/libs/E2ETrace-3.15.6.aar" target-dir="libs"/>
+
+		<source-file src="android/libs/sap-e2etrace-2.3.5.300.jar" target-dir="libs"/>
+		<source-file src="android/libs/perflib-1.2.0.jar" target-dir="libs"/>
+		<source-file src="android/libs/AfariaSLL-7.00.6169.0.jar" target-dir="libs"/>
+
+        <source-file src="android/libs/simple-xml-2.7.1.jar" target-dir="libs"/>
+
+		<source-file src="android/libs/corelibs-android-3.15.8.aar" target-dir="libs"/>
+
+        <framework src="android/smp_corelibs.gradle" custom="true" type="gradleReference" />
+
+        <resource-file src="android/res/values/colors.xml" target="res/values/colors.xml" />
+        <resource-file src="android/res/values/dimens.xml" target="res/values/dimens.xml" />
+        <resource-file src="android/res/values/styles.xml" target="res/values/styles.xml" />
+
+        <resource-file src="android/res/xml/kapsel_network_security_config.xml" target="res/xml/kapsel_network_security_config.xml" />
+	</platform>
+	<platform name="ios">
+		<framework src="libz.dylib"/>
+		<framework src="libstdc++.6.dylib"/>
+        <framework src="libc++.dylib"/>
+		<framework src="libsqlite3.dylib"/>
+		<framework src="Security.framework"/>
+		<framework src="MessageUI.framework"/>
+		<framework src="CFNetwork.framework"/>
+		<framework src="SystemConfiguration.framework"/>
+        <framework src="CoreData.framework"/>
+        <framework src="LocalAuthentication.framework"/>
+        <framework src="WebKit.framework" weak="true" />
+        <!-- SQLCipher must be present before libsqlite3 to avoid a crash.  Cordova binary links source files before frameworks -->
+        <source-file framework="true" src="ios/libs/libsqlcipher.a"/>
+		<source-file framework="true" src="ios/libs/libConnectivity.a"/>
+		<source-file framework="true" src="ios/libs/libRequest.a"/>
+		<source-file framework="true" src="ios/libs/libE2ETrace.a"/>
+		<source-file framework="true" src="ios/libs/libCoreServices.a"/>
+		<source-file framework="true" src="ios/libs/libClientHubSLL.a"/>
+		<source-file framework="true" src="ios/libs/libLogger.a"/>
+        <source-file framework="true" src="ios/libs/libHttpConversation.a"/>
+        <source-file framework="true" src="ios/libs/libHttpConvAuthFlows.a"/>
+        <source-file framework="true" src="ios/libs/libUserInteractionMultiplexer.a"/>
+
+        <source-file framework="true" src="ios/libs/libSupportability.a"/>
+        <source-file framework="true" src="ios/libs/libClientLog.a"/>
+        <source-file framework="true" src="ios/libs/libE2ETrace2.a"/>
+
+		<source-file framework="true" src="ios/libs/libAfariaSLL.a"/>
+		<source-file framework="true" src="ios/libs/libDatavault.a"/>
+		<source-file framework="true" src="ios/libs/libPerformanceLib.a"/>
+		<source-file framework="true" src="ios/libs/libSMPCoreLib.a"/>
+        <source-file framework="true" src="ios/libs/libcrypto.a"/>
+        
+        <resource-file src="ios/bundles/UserInteractionMultiplexer.bundle" />
+        
+        <hook type="after_plugin_install" src="ios/hooks/disable_bitcode.js"/>
+        <hook type="after_platform_add" src="ios/hooks/disable_bitcode.js"/>
+	</platform>
+</plugin>

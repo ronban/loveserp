@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-i18n"
+    version="3.15.8">
+
+    <name>i18n</name>
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+	<js-module name="i18n" src="www/i18n.js">
+	</js-module>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/widget">
+			<feature name="i18n">
+				<param name="android-package" value="com.sap.mp.cordova.plugins.i18n.I18N"/>
+			</feature>
+		</config-file>
+		<source-file src="android/libs/i18n-android-3.15.8.aar" target-dir="libs"/>
+		<framework src="android/smp_i18n.gradle" custom="true" type="gradleReference" />
+	</platform>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/widget">
+			<feature name="i18n">
+				<param name="ios-package" value="SMPI18nPlugin"/>
+			</feature>
+		</config-file>
+		<source-file framework="true" src="ios/libs/libSMPI18nPlugin.a"/>
+	</platform>
+    <platform name="windows">
+		 <js-module name="i18n_proxy_win" src="windows/src/i18n_proxy_win.js">
+            <merges target="i18n_proxy_win"/>
+        </js-module>
+	</platform>
+</plugin>

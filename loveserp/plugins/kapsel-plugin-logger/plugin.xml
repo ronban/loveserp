@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-logger"
+    version="3.15.8">
+
+    <name>Logger</name>
+
+    <description>Allows you to log information to trace bugs or other issues in your Hybrid SDK (Kapsel) application for analysis. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/7c1c824070061014974db3fd2d1bce22.html</description>
+
+    <author>SAP SE</author>
+
+    <license>SAP Mobile Platform SDK "License Agreement"</license>    
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <dependency id="kapsel-plugin-corelibs" />
+    <dependency id="kapsel-plugin-inappbrowser"/>
+    <dependency id="kapsel-plugin-logon"/>
+
+	<js-module name="Logging" src="www/logger.js">
+		<clobbers target="sap.Logger"/>
+	</js-module>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Logging">
+			  <param name="android-package" value="com.sap.mp.cordova.plugins.logger.Logger"/>
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<provider
+				android:name="com.sap.mp.cordova.plugins.logger.LoggerFileProvider"
+				android:authorities="$PACKAGE_NAME.KapselLogger"
+				android:exported="false"
+				android:grantUriPermissions="true">
+				<meta-data
+					android:name="android.support.FILE_PROVIDER_PATHS"
+					android:resource="@xml/logfilepaths" />
+			</provider>
+		</config-file>
+
+        <source-file src="android/logfilepaths.xml" target-dir="res/xml/" />
+
+    	<source-file src="android/libs/logger-android-3.15.8.aar" target-dir="libs"/>
+        <framework src="android/smp_logger.gradle" custom="true" type="gradleReference" />
+        <framework src="com.android.support:support-v4:22.0.0" />
+  	</platform>
+
+    <platform name="ios">
+		<config-file target="config.xml" parent="/*">
+            <feature name="Logging">
+                <param name="ios-package" value="SMPLoggerPlugin"/>
+			</feature>
+		</config-file>
+
+        <source-file src="ios/libs/libSMPLoggerPlugin.a" framework="true"/>
+
+    	<framework src="libz.dylib" />
+    </platform>
+
+    <platform name="windows">
+        <!-- command proxy for windows8 platform -->
+        <js-module name="logger_proxy_win" src="windows/src/logger_proxy_win.js">
+          <clobbers target="logger_proxy_win"/>
+        </js-module>
+		
+        <!-- WIN 10 -->
+		<resource-file src="windows/windows10/bin/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-logger\windows10\bin\SAP.CoreLibs.dll" versions="&gt;8.1" reference="true"/>
+		<framework src="windows/windows10/bin/SAP.Logger.winmd" target-dir="windows10/bin" versions="&gt;8.1"/>
+        
+        <!-- WIN 8.1 -->
+		<resource-file src="windows/windows81/bin/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-logger\windows81\bin\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+        <framework src="windows/windows81/bin/SAP.Logger.winmd" target-dir="windows81/bin" versions="=8.1"/>
+
+    </platform>
+</plugin>

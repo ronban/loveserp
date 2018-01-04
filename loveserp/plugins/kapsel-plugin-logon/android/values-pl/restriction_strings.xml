@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"ID aplikacji"</string>
+    <string name="restriction_description_appID">"ID aplikacji wykorzystywany do identyfikacji aplikacji dla trezora danych. W przypadku używania SMP, powinien być on spójny z ID aplikacji docelowej. Należy pamiętać, iż wartość ta jest odmienna od nazwy pakietu, która jest zazwyczaj wykorzystywana do identyfikacji w sklepach aplikacji."</string>
+
+    <string name="restriction_title_fioriURL">"URL serwera Fiori"</string>
+    <string name="restriction_description_fioriURL">"Pełny URL aplikacji docelowej. Jeśli aplikacja nie używa SMP, przechodzi bezpośrednio do tego URL zaraz po zalogowaniu. Jeśli aplikacja użytkownika używa SMP, ten URL podlega analizie składni i jest wykorzystywany w następujący sposób: 1. Schemat URL (musi być HTTP lub HTTPS) określa początkową wartość znacznika \'https\' w oknie dialogowym rejestracji. Podobnia, host i port w URL określają ich korespondujące wartości początkowe w oknie dialogowym rejestracji, z ustawieniem domyślnym portu na 443, jeśli nie jest on określony. 2. Przedrostek (sufiks) URL (wszystko po hoście i porcie) jest dodawany do URL, do którego użytkownik się rejestruje. Mimo że prawdopodobnie jest on taki sam jak schemat, host i port z punktu 1, użytkownik może zmienić te wartości. Jednak sufix nie może zostać zmieniony. W przypadku używania SMP, należy określić schemat, host oraz port swojego serwera SMP, po których następuje sufix punktu końcowego Fiori. Na przykład: \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"Nazwa aplikacji"</string>
+     <string name="restriction_description_appName">"Opcjonalna właściwość wykorzystywana do konfiguracji nazwy aplikacji Fiori wyświetlonej an ekranie logowania. Domyślna nazwa aplikacji to SAP Fiori Client. Jeśli pole to jest puste, wykorzystywana jest nazwa domyślna."</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"URL serwera Fiori jest serwerem SMP"</string>
+     <string name="restriction_description_fioriURLIsSMP">"W przypadku używania SMP należy ustawić to jako Prawda, aby wykonać rejestrację."</string>
+
+     <string name="restriction_title_prefetch">"Wstępne wczytanie składników webowych"</string>
+     <string name="restriction_description_prefetch">"Składniki Web aplikacji SAP Fiori są pobierane z serwera prezentacji SAP Fiori i zapamiętywane na urządzeniu użytkownika. Po pierwotnym pobraniu, wszelkie aktualizacje z serwera prezentacji SAP Fiori są dalej pobierane i zapisywane."</string>
+
+    <string name="restriction_title_certificate">"Dostawca certyfikatu klienta"</string>
+    <string name="restriction_description_certificate">"Dostawca certyfikatu klienta"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"Automatyczne wybieranie dostawcy sertyfikatu kleinta"</string>
+    <string name="restriction_description_autoSelectSingleCert">"Jeśli dostępny jest tylko jeden certyfikat klienta, należy wybrać ten certyfikat do ręcznego uwierzytelnienia."</string>
+
+    <string name="restriction_title_communicatorId">"ID komunikatora"</string>
+    <string name="restriction_description_communicatorId">"ID komunikatora dla rejestracji SMP/HCPms. Wartością domyślną jest REST."</string>
+
+    <string name="restriction_title_keysize">"Wielkość klucza dostawcy certyfikatu Afaria"</string>
+    <string name="restriction_description_keysize">"Opcjonalny argument dla AfariaCertificateProvider. Ten argument ustawia szybkość transmisji bitów kluczy publicznych/prywatnych. Wartość pusta lub nieprawidłowa przyjmuje wartość domyślną wynoszącą 2048."</string>
+
+    <string name="restriction_title_idpLogonURL">"URL logowania dostawcy tożsamości"</string>
+    <string name="restriction_description_idpLogonURL">"Adres URL, który ponownie wczytuje logowanie dostawcy tożsamości z nazwą użytkownika/kodem przekazanym z aplikacji SAP Authenticator dla SSO."</string>
+
+    <string name="restriction_title_enableCacheManager">"Aktywacja menedżera pamięci podręcznej"</string>
+    <string name="restriction_description_enableCacheManager">"Aktywuje plugin menedżera pamięci podręcznej."</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"Zapamiętanie danych uwierzytelniających formularza"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"Dane uwierzytelniające formularza mogą zostać zapamiętane i wstępnie wypełnione w przyszłości."</string>
+
+    <string name="restriction_title_disablePasscode">"Dezaktywacja ekranu kodu"</string>
+    <string name="restriction_description_disablePasscode">"Jeśli to prawda, ekran kodu nie zostanie wyświetlony. Musi być to fałsz, jeśli włączona jest obsługa wielu użytkowników."</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"Dni do upływu ważności polityki kodu dostępu"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"Polityka kodu dostępu zawiera cyfry"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"Polityka kodu dostępu zawiera małe litery"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"Polityka kodu dostępu zawiera znaki specjalne"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"Polityka kodu zawiera wielkie litery"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"Dozwolone wartości domyślne polityki kodu"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"Polityka kodu dostępu: Przekroczenie limitu czasu blokady"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"Polityka kodu dostępu: Długość minimalna"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"Polityka kodu dostępu: Minimalna liczba znaków unikalnych"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"Polityka kodu dostępu: Limit prób"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku używania SMP polityka kodu dostępu jest określana przez serwer."</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"Polityka kodu dostępu: Zezwalanie na uwierzytelnianie za pomocą odcisku palca"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"Polityka kodu dostępu trezora danych. Uwaga: W przypadku korzystania z rozwiązania SAP Mobile Platform, polityka kodu jest określana przez serwer."</string>
+
+    <string name="restriction_title_authType">"Rodzaj uprawnień"</string>
+    <string name="restriction_description_authType">"Proszę określić rodzaj uprawnień tylko dla OAuth (jako oauth2) lub SAML (jako saml2.web.post)."</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"Punkt końcowy uprawnień OAuth"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"URL nadające uprawnienia użytkownikowi."</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"Punkt końcowy tokena OAuth"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"URL, z którego wywoływane są tokeny."</string>
+
+    <string name="restriction_title_oauth2.grantType">"Typ nadania OAuth"</string>
+    <string name="restriction_description_oauth2.grantType">"Typ nadania do wykorzystania."</string>
+
+    <string name="restriction_title_oauth2.clientID">"ID klienta OAuth"</string>
+    <string name="restriction_description_oauth2.clientID">"ID klienta, który identyfikuje aplikację."</string>
+</resources>

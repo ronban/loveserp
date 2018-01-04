@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-voicerecording"
+    version="3.15.8">
+    
+    <name>Voice Recording</name>
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <js-module name="VoiceRecording" src="www/recording.js">
+        <clobbers target="sap.VoiceRecording" />
+    </js-module>
+    <js-module name="VoiceRecording-AudioRecorder" src="www/audiorecorder.js" />
+    <js-module name="VoiceRecording-AudioScreen" src="www/screen.js" />
+    <js-module name="VoiceRecording-Utils" src="www/recordingutils.js" />
+
+    <dependency id="kapsel-plugin-encryptedstorage" />
+    <dependency id="kapsel-plugin-i18n"/>
+    <dependency id="cordova-plugin-file" />
+    <dependency id="cordova-plugin-screen-orientation" />
+    <asset target="plugins/kapsel-plugin-voicerecording/www/i18n" src="www/i18n" />
+    <asset target="plugins/kapsel-plugin-voicerecording/www" src="www/dialogs.css" />
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="VoiceRecording">
+                <param name="android-package" value="com.sap.mp.cordova.plugins.recording.VoiceRecording" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        </config-file>
+         <source-file src="android/libs/voicerecording-android-3.15.8.aar" target-dir="libs" />
+         <framework custom="true" src="android/smp_voicerecording.gradle" type="gradleReference" />
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="VoiceRecording">
+                <param name="ios-package" value="SMPVoiceRecordingPlugin" />
+            </feature>
+        </config-file>
+        <source-file framework="true" src="ios/libs/libSMPVoiceRecordingPlugin.a" />
+        <framework src="AudioToolbox.framework" />
+
+        <preference name="MICROPHONE_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>$MICROPHONE_USAGE_DESCRIPTION</string>
+        </config-file>
+    </platform>
+    <platform name="windows">
+        <js-module src="windows/src/voicerecording_proxy_win.js" name="voicerecording_proxy_win">
+                <merges target="voicerecording_proxy_win" />
+        </js-module>
+        <config-file target="package.appxmanifest" parent="/Package/Capabilities">
+            <DeviceCapability Name="webcam" />
+            <DeviceCapability Name="microphone" />
+        </config-file>
+
+		<!-- WIN 10-->
+		<resource-file src="windows/windows10/ARM/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows10\ARM\SAP.CoreLibs.dll" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/x64/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows10\x64\SAP.CoreLibs.dll" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows10\x86\SAP.CoreLibs.dll" versions="&gt;8.1" reference="true"/>
+		
+        <framework src="windows/windows10/ARM/SAP.VoiceRecording.winmd" target-dir="windows10/ARM" versions="&gt;8.1" arch="ARM"/>
+
+        <framework src="windows/windows10/x86/SAP.VoiceRecording.winmd" target-dir="windows10/x86" versions="&gt;8.1" arch="x86"/>
+
+        <framework src="windows/windows10/x64/SAP.VoiceRecording.winmd" target-dir="windows10/x64" versions="&gt;8.1" arch="x64"/>
+
+		<!-- WIN 8.1 Phone-->
+		<resource-file src="windows/windows81/wp/ARM/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows81\wp\ARM\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/wp/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows81\wp\x86\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+		
+        <framework src="windows/windows81/wp/ARM/SAP.VoiceRecording.winmd" target-dir="windows81/wp/ARM" versions="=8.1" arch="ARM" target="phone"/>
+
+        <framework src="windows/windows81/wp/x86/SAP.VoiceRecording.winmd" target-dir="windows81/wp/x86" versions="=8.1" arch="x86" target="phone"/>
+
+        <!--WIN 8.1 Windows-->
+		<resource-file src="windows/windows81/win/x64/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows81\win\x64\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/win/x86/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-voicerecording\windows81\win\x86\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+		
+        <framework src="windows/windows81/win/x64/SAP.VoiceRecording.winmd" target-dir="windows81/win/x64" versions="=8.1" arch="x64" target="win"/>
+
+        <framework src="windows/windows81/win/x86/SAP.VoiceRecording.winmd" target-dir="windows81/win/x86" versions="=8.1" arch="x86" target="win"/>
+    </platform>
+</plugin>

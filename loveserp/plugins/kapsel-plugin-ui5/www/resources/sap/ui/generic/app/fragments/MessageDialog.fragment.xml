@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" >
+	<Dialog state="{settings>/state}" type="Message" initialFocus="Close" title="{settings>/title}">
+		<content>
+			<Table growing="false" showSeparators="Inner" inset="false" fixedLayout="false" backgroundDesign="Transparent" items="{message>/}" noDataText=" " showNoData="true">
+				<columns>
+					<Column hAlign="Left" vAlign="Top" />
+				</columns>
+				<ColumnListItem unread="false" vAlign="Top"	type="{message>itemType}">
+					<cells>
+						<layout:Grid vSpacing="0" hSpacing="0">
+							<layout:content>
+								<ObjectStatus visible="{= (${settings>/multiMessages} === true)}" icon="{= (${message>type} === 'Error') ? 'sap-icon://message-error' : (${message>type} === 'Warning') ? 'sap-icon://message-warning' : (${message>type} === 'Success') ? 'sap-icon://message-success' : 'sap-icon://message-information'}"
+											  state="{= (${message>type} === 'Error') ? 'Error' : ((${message>type} === 'Warning') ? 'Warning' : 'Success')}">
+									<layoutData>
+										<layout:GridData span="L2 M2 S2" />
+									</layoutData>
+								</ObjectStatus>
+								<Text maxLines="3" text="{message>message}">
+									<layoutData>
+										<layout:GridData span="{= (${settings>/multiMessages} === true) ? 'L10 M10 S10' : 'L12 M12 S12'}" />
+									</layoutData>
+								</Text>
+							</layout:content>
+						</layout:Grid>
+					</cells>
+				</ColumnListItem>
+			</Table>
+		</content>
+		<buttons>
+			<Button text="{settings>/closeButtonText}" id="Close" press="onMessageDialogClose" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"Alkalmazásazonosító"</string>
+    <string name="restriction_description_appID">"Az alkalmazás adattárolóban való azonosításához használt alkalmazásazonosító. SMP használata esetén ennek konzisztensnek kell lennie a célalkalmazás alkalmazásazonosítójával. Ez az érték különbözik a csomag nevétől, amely leginkább az alkalmazás-áruházban való azonosítósra szolgál."</string>
+
+    <string name="restriction_title_fioriURL">"Fiori szerver URL-címe"</string>
+    <string name="restriction_description_fioriURL">"A célalkalmazás teljes URL-címe. Ha az alkalmazás nem használ SMP-t, közvetlenül erre az URL-címre navigál a bejelentkezés után. Ha az alkalmazás SMP-t használ, a rendszer értelmezi az URL-címet, és a következőképpen használja: 1. Az URL-séma (amelyik csak HTTP vagy HTTPS lehet) meghatározza a \"https\" jelző kezdeti értékét a regisztrációs párbeszédpanelen. Hasonlóképpen, az URL-cím állomás- és portadatai meghatározzák a megfelelő kezdeti értékeket a regisztrációs párbeszédpanelen; ha a port nincs megadva, akkor az alapértelmezett érték a 443. 2. Az URL-cím utótagja (minden az állomás és a port után) azután az URL-cím után került, amelyre a felhasználó regisztrál. Ez valószínűleg azonos lesz az 1-es pont sémájával, állomásával és portjával, a felhasználó azonban módosíthatja az értékeket. Az utótag azonban nem módosítható. SMP használata estén adja meg az SMP-szerver sémáját, állomását és portját, amelyeket a Fiori-végpont utótagja követ. Példa: \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"Alkalmazás neve"</string>
+     <string name="restriction_description_appName">"Választható tulajdonság, amellyel testreszabható a Fiori alkalmazás neve a bejelentkezési képernyőn. Alapértelmezés szerint az alkalmazás neve SAP Fiori Client. Ha a mező üres, a rendszer az alapértelmezett értéket használja."</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"A Fiori szerver URL-címe SMP-szerver"</string>
+     <string name="restriction_description_fioriURLIsSMP">"SMP használata esetén a regisztráció végrehajtásához a beállítás étéke legyen Igaz."</string>
+
+     <string name="restriction_title_prefetch">"Webes eszközök előzetes beolvasása"</string>
+     <string name="restriction_description_prefetch">"Beolvassa az SAP Fiori webes eszközeit az SAP Fiori frontend szerverről, és letölti őket a felhasználó eszközére. A kezdeti letöltés után minden alkalmazásfrissítést beolvas és letölt az SAP Fiori frontend szerverről."</string>
+
+    <string name="restriction_title_certificate">"Klienstanúsítvány kibocsátója"</string>
+    <string name="restriction_description_certificate">"Klienstanúsítvány kibocsátója"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"Klienstanúsítvány kibocsátójának automatikus kiválasztása"</string>
+    <string name="restriction_description_autoSelectSingleCert">"Ha csak egy klienstanúsítvány érhető el, a rendszer automatikusan azt választja a kölcsönös hitelesítéshez."</string>
+
+    <string name="restriction_title_communicatorId">"Kommunikátorazonosító"</string>
+    <string name="restriction_description_communicatorId">"Kommunikátorazonosító SMP/HCPms-regisztrációhoz. Az alapértelmezett érték a REST."</string>
+
+    <string name="restriction_title_keysize">"Afaria-tanúsítványszolgáltató kulcsmérete"</string>
+    <string name="restriction_description_keysize">"Az AfariaCertificateProvider nem kötelező argumentuma. Ez az argumentum a nyilvános/titkos kulcsok bitsűrűségét határozza meg. Üres vagy érvénytelen érték esetén az alapértelmezés 2048."</string>
+
+    <string name="restriction_title_idpLogonURL">"Identitásszolgáltató bejelentkezési URL-címe"</string>
+    <string name="restriction_description_idpLogonURL">"URL, amely újratölti az identitásszolgáltató bejelentkezését az SAP SSO-hitelesítője által átadott felhasználónévvel és jelszóval"</string>
+
+    <string name="restriction_title_enableCacheManager">"Cache Manager aktiválása"</string>
+    <string name="restriction_description_enableCacheManager">"A Cache Manager plugin aktiválása"</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"Űrlap hitelesítő adatainak mentése"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"Engedélyezi, hogy tárolódjanak az űrlap hitelesítő adatai, és a jövőben automatikusan ki legyenek töltve."</string>
+
+    <string name="restriction_title_disablePasscode">"Jelkódképernyő letiltása"</string>
+    <string name="restriction_description_disablePasscode">"Igaz érték esetén nem jelenik meg a jelkódképernyő. Több felhasználó támogatása esetén hamis értékkel kell rendelkeznie."</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"Jelkódházirend lejárata napokban"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"A jelkódházirend számjegyet tartalmaz"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"A jelkódházirend kisbetűt tartalmaz"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"A jelkódházirend speciális karaktert tartalmaz"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"A jelkódházirend nagybetűt tartalmaz"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"A jelkódházirend alapértelmezett értéke engedélyezve"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"A jelkódházirend zárolási időkorlátja"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"Jelkódházirend - minimális hossz"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"Jelkódházirend - minimálisan használandó egyedi karakterek"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"Jelkódházirend - újrapróbálkozási korlát"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"Az adattároló jelkódházirendje. Megjegyzés: SMP használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"Jelkódházirend: ujjlenyomat-alapú hitelesítés engedélyezése"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"Az adattároló jelkódházirendje. Megjegyzés: SAP Mobile Platform használata esetén a jelkódházirendet a szerver határozza meg."</string>
+
+    <string name="restriction_title_authType">"Hitelesítéstípus"</string>
+    <string name="restriction_description_authType">"Csak az OAuth (oauth2) vagy az SAML (saml2.web.post) hitelesítéstípusát adja meg."</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"OAuth hitelesítési végpont"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"A felhasználót hitelesítő URL."</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"OAuth token végpont"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"Az URL, ahonnan a tokenek származnak."</string>
+
+    <string name="restriction_title_oauth2.grantType">"OAuth megadás típusa"</string>
+    <string name="restriction_description_oauth2.grantType">"Használandó megadástípus"</string>
+
+    <string name="restriction_title_oauth2.clientID">"OAuth kliensazonosító"</string>
+    <string name="restriction_description_oauth2.clientID">"Az alkalmazást azonosító kilensazonosító"</string>
+</resources>

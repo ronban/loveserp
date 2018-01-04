@@ -1,0 +1,9 @@
+{
+    "packageName": "com.loves.fioriclient",
+    "targetFolder": "loveserp",
+    "appName": "Loves ERP",
+    "platforms": ["ios","android"],
+    "cordovaPluginIncludes" : [],
+    "cordovaPluginExcludes" : ["kapsel-plugin-push"],
+    "crosswalkEnabled" : true
+}

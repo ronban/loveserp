@@ -1,0 +1,61 @@
+{
+  "_from": "com.lampa.startapp",
+  "_id": "com.lampa.startapp@0.1.4",
+  "_inBundle": false,
+  "_integrity": "sha1-sdmwtHwsGreTOc/SLpQj/lnv19I=",
+  "_location": "/com.lampa.startapp",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "com.lampa.startapp",
+    "name": "com.lampa.startapp",
+    "escapedName": "com.lampa.startapp",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/com.lampa.startapp/-/com.lampa.startapp-0.1.4.tgz",
+  "_shasum": "b1d9b0b47c2c1ab79339cfd22e9423fe59efd7d2",
+  "_spec": "com.lampa.startapp",
+  "_where": "/Users/roney/Downloads/ebf27674/modules/KapselSDK/KapselSDK/apps/fiori_client/loveserp/node_modules",
+  "author": {
+    "name": "lampaa"
+  },
+  "bugs": {
+    "url": "https://github.com/lampaa/com.lampa.startapp/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "com.lampa.startapp",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Phonegap plugin for check or launch other application in android device.",
+  "homepage": "https://github.com/lampaa/com.lampa.startapp#readme",
+  "keywords": [
+    "cordova",
+    "startapp",
+    "lampa",
+    "extra",
+    "extrafields",
+    "hasextra",
+    "cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "com.lampa.startapp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lampaa/com.lampa.startapp.git"
+  },
+  "version": "0.1.4"
+}

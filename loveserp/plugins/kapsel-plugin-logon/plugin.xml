@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-logon"
+    version="3.15.8">
+
+    <name>Logon</name>
+
+    <description>Manage application registration and authentication processes either through SAP Mobile Platform Server, SAP HCP, mobile service for development and operations or through SAP Gateway server. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/7c1d2095700610149df2d6426ec2a8fe.html</description>
+
+    <author>SAP SE</author>
+
+    <license>SAP Mobile Platform SDK "License Agreement"</license>    
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+    <dependency id="kapsel-plugin-ui5" />
+    <dependency id="kapsel-plugin-corelibs" />
+    <dependency id="kapsel-plugin-authproxy" />
+    <dependency id="kapsel-plugin-inappbrowser"/>
+    <dependency id="cordova-plugin-device"/>
+    <dependency id="cordova-plugin-dialogs"/>
+
+    <js-module name="LogonCore" src="www/common/modules/MAFLogonCorePlugin.js">
+        <clobbers target="sap.logon.Core"/>
+	</js-module>
+	<js-module name="LogonLocalStorage" src="www/common/modules/LogonCoreLocalStorage.js">
+        <clobbers target="sap.logon.CoreLocalStorage"/>
+	</js-module>
+    <js-module name="LogonUtils" src="www/common/modules/Utils.js">
+        <clobbers target="sap.logon.Utils"/>
+    </js-module>
+    <js-module name="LogonStaticScreens" src="www/common/modules/StaticScreens.js">
+        <clobbers target="sap.logon.StaticScreens"/>
+    </js-module>
+    <js-module name="LogonDynamicScreens" src="www/common/modules/DynamicScreens.js">
+        <clobbers target="sap.logon.DynamicScreens"/>
+    </js-module>
+    <js-module name="Logon" src="www/common/modules/LogonController.js">
+        <clobbers target="sap.Logon"/>
+    </js-module>
+    <js-module name="LogonJsView" src="www/common/modules/LogonJsView.js">
+        <clobbers target="sap.logon.LogonJsView"/>
+        <clobbers target="sap.logon.IabUi"/>
+    </js-module>
+    <platform name="android">
+
+        <asset target="smp/logon" src="www/common/assets"/>
+
+        <source-file target-dir="libs" src="android/libs/MAFLogger-3.15.6.aar" />
+        <source-file target-dir="libs" src="android/libs/MAFLogonCore-3.15.6.aar" />
+        <source-file target-dir="libs" src="android/libs/CommonCertificateProvider-3.15.6.aar" />
+        <source-file target-dir="libs" src="android/libs/AfariaProvider-3.15.6.aar" />
+        <source-file target-dir="libs" src="android/libs/XscriptParser-3.15.6.aar" />
+
+       <source-file target-dir="libs" src="android/libs/maflogoncorecdvplugin-3.15.8.aar" />
+
+        <framework src="android/smp_logon.gradle" custom="true" type="gradleReference" />
+        <framework src="com.google.code.gson:gson:2.8.0" />
+
+        <config-file target="res/xml/config.xml" parent="/widget">
+            <feature name="MAFLogonCoreCDVPluginJS" required="true">
+                <param name="android-package" value="com.sap.maf.html5.android.MAFLogonCoreCDVPlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+			    <uses-permission android:name="com.sap.mobile.clientHub.CLIENTHUB_ACCESS_PERMISSION" />
+  		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data
+                android:name="com.sap.afaria"
+                android:value="com.sap.smp.client.android.afariaprovider.AfariaCertificateProvider" />
+            <meta-data android:name="android.content.APP_RESTRICTIONS" android:resource="@xml/restrictions" />
+            <meta-data
+                android:name="com.sap.SystemCertProvider"
+                android:value="com.sap.maf.html5.android.SystemCertProvider" />
+		</config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+        </config-file>
+
+        <!-- Android for Work resources -->
+        <resource-file src="android/restrictions.xml" target="res/xml/restrictions.xml" />
+        <resource-file src="android/values/restriction_strings.xml" target="res/values/restriction_strings.xml" />
+        <resource-file src="android/values-ar/restriction_strings.xml" target="res/values-ar/restriction_strings.xml" />
+        <resource-file src="android/values-cs/restriction_strings.xml" target="res/values-cs/restriction_strings.xml" />
+        <resource-file src="android/values-de/restriction_strings.xml" target="res/values-de/restriction_strings.xml" />
+        <resource-file src="android/values-en/restriction_strings.xml" target="res/values-en/restriction_strings.xml" />
+        <resource-file src="android/values-es/restriction_strings.xml" target="res/values-es/restriction_strings.xml" />
+        <resource-file src="android/values-fr/restriction_strings.xml" target="res/values-fr/restriction_strings.xml" />
+        <resource-file src="android/values-it/restriction_strings.xml" target="res/values-it/restriction_strings.xml" />
+        <resource-file src="android/values-ja/restriction_strings.xml" target="res/values-ja/restriction_strings.xml" />
+        <resource-file src="android/values-nb/restriction_strings.xml" target="res/values-nb/restriction_strings.xml" />
+        <resource-file src="android/values-pt/restriction_strings.xml" target="res/values-pt/restriction_strings.xml" />
+        <resource-file src="android/values-ru/restriction_strings.xml" target="res/values-ru/restriction_strings.xml" />
+        <resource-file src="android/values-zh_CN/restriction_strings.xml" target="res/values-zh-rCN/restriction_strings.xml" />
+        <resource-file src="android/values-hu/restriction_strings.xml" target="res/values-hu/restriction_strings.xml" />
+        <resource-file src="android/values-pl/restriction_strings.xml" target="res/values-pl/restriction_strings.xml" />
+        
+        <source-file src="android/drawable/ic_fingerprint_error.xml" target-dir="res/drawable" />
+        <source-file src="android/drawable/ic_fingerprint_success.xml" target-dir="res/drawable" />
+        <source-file src="android/drawable-hdpi/ic_fp_40px.png" target-dir="res/drawable-hdpi" />
+        <source-file src="android/drawable-mdpi/ic_fp_40px.png" target-dir="res/drawable-mdpi" />
+        <source-file src="android/drawable-nodpi/android_robot.png" target-dir="res/drawable-nodpi" />
+        <source-file src="android/drawable-xhdpi/ic_fp_40px.png" target-dir="res/drawable-xhdpi" />
+        <source-file src="android/drawable-xxhdpi/ic_fp_40px.png" target-dir="res/drawable-xxhdpi" />
+        <source-file src="android/drawable-xxxhdpi/ic_fp_40px.png" target-dir="res/drawable-xxxhdpi" />
+        <source-file src="android/layout/fingerprint_dialog_container.xml" target-dir="res/layout" />
+        <source-file src="android/layout/fingerprint_dialog_content.xml" target-dir="res/layout" />
+        <source-file src="android/values/fpauth-colors.xml" target-dir="res/values" />
+        <source-file src="android/values/fpauth-strings.xml" target-dir="res/values" />
+    </platform>
+
+    <platform name="ios">
+        <asset target="smp/logon" src="www/common/assets"/>
+
+        <source-file src="ios/libs/libMAFLogger.a" framework="true"/>
+        <source-file src="ios/libs/libMAFLogonCoreCDVPlugin.a" framework="true"/>
+        <source-file src="ios/libs/libMAFLogonManagerNG.a" framework="true"/>
+        <source-file src="ios/libs/libCommonCertificateProvider.a" framework="true"/>
+        <source-file src="ios/libs/libAfariaProvider.a" framework="true"/>
+        <source-file src="ios/libs/libXScriptParser.a" framework="true"/>
+        <header-file src="ios/headers/CertificateProvider.h" />
+        <header-file src="ios/headers/CertificateProviderDelegate.h" />
+
+        <resource-file src="ios/bundles/MAFLogonManagerNG.bundle" />
+        <resource-file src="ios/bundles/AfariaProvider.bundle" />
+        <resource-file src="ios/bundles/MAFLogonCoreCDVPlugin.bundle" />
+        
+		<config-file target="config.xml" parent="/widget">
+            <feature name="MAFLogonCoreCDVPluginJS">
+                <param name="ios-package" value="MAFLogonCoreCDVPlugin"/>
+            </feature>
+       		<preference name="openurlscheme.afaria" value="$PACKAGE_NAME.afaria" />
+       		<preference name="openurlscheme.xcallbackurl" value="$PACKAGE_NAME.xcallbackurl" />
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+           <array>
+               <dict>
+                  <key>CFBundleURLName</key>
+                  <string>$PACKAGE_NAME.afaria</string>
+       			  <key>CFBundleURLSchemes</key>
+       			  <array>
+                      <string>$PACKAGE_NAME.afaria</string>
+                  </array>
+               </dict>
+               <dict>
+                  <key>CFBundleURLName</key>
+                  <string>$PACKAGE_NAME.xcallbackurl</string>
+       			  <key>CFBundleURLSchemes</key>
+       			  <array>
+                      <string>$PACKAGE_NAME.xcallbackurl</string>
+                  </array>
+                </dict>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>afaria-getdata</string>
+                <string>afaria-appstore-getdata</string>
+                <string>afaria-enterprise-getdata</string>
+                <string>sapauthenticator</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="com.sap.afaria">
+            <string>AfariaCertificateProvider</string>
+        </config-file>
+    </platform>
+
+    <platform name="windows">
+        <asset target="smp/logon" src="www/common/assets"/>
+
+        <js-module name="logon_proxy_win" src="windows/src/logon_proxy_win.js">
+            <merges target="logon_proxy_win"/>
+        </js-module>
+
+		<!-- WIN 10 -->
+		<resource-file src="windows/windows10/bin/SAP.CertificateProvider.winmd" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.CertificateProvider.winmd" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/bin/SAP.Logon.Core.winmd" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.Logon.Core.winmd" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/bin/SAP.Net.Http.dll" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.Net.Http.dll" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/bin/SAP.SecureStore.winmd" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.SecureStore.winmd" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/bin/SAP.Supportability.winmd" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.Supportability.winmd" versions="&gt;8.1" reference="true"/>
+		<resource-file src="windows/windows10/bin/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-logon\windows10\bin\SAP.CoreLibs.dll" versions="&gt;8.1" reference="true"/>
+		<framework src="windows/windows10/bin/SAP.Logon.winmd" target-dir="windows10/bin" versions="&gt;8.1" />
+		
+		<!-- WIN 8.1 -->
+		<resource-file src="windows/windows81/bin/SAP.CertificateProvider.winmd" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.CertificateProvider.winmd" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/bin/SAP.Logon.Core.winmd" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.Logon.Core.winmd" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/bin/SAP.Net.Http.dll" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.Net.Http.dll" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/bin/SAP.SecureStore.winmd" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.SecureStore.winmd" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/bin/SAP.Supportability.winmd" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.Supportability.winmd" versions="=8.1" reference="true"/>
+		<resource-file src="windows/windows81/bin/SAP.CoreLibs.dll" target="plugins\kapsel-plugin-logon\windows81\bin\SAP.CoreLibs.dll" versions="=8.1" reference="true"/>
+		<framework src="windows/windows81/bin/SAP.Logon.winmd" target-dir="windows81/bin" versions="=8.1" />
+
+        <!-- Add capabilities to the manifest file -->
+        <config-file target="package.appxmanifest" parent="/Package/Capabilities">
+            <!-- access the internet -->
+            <Capability Name="internetClient" />
+            <!-- access intranet -->
+            <Capability Name="privateNetworkClientServer" />
+            <!-- Used for x.509 certificate challenge -->
+            <Capability Name="sharedUserCertificates" />
+        </config-file>
+
+    </platform>
+</plugin>

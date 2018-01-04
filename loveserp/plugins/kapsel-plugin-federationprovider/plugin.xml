@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-federationprovider"
+    version="3.15.8">
+
+  <name>FederationProvider</name>
+
+  <description>The FederationProvider plugin is a CertificateProvider implementation that enables sharing of X509 client certificates for authentication across multiple applications. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/39f6add400e14c76b1846a79ce8b6f0f.html</description>
+
+  <author>SAP SE</author>
+
+  <license>SAP Mobile Platform SDK "License Agreement"</license> 
+
+
+  <engines>
+    <engine name="cordova" version="&gt;=6.5.0" />
+    <engine name="cordova-android" version="&gt;=6.1.2" />
+    <engine name="cordova-ios" version="&gt;=4.3.1" />
+  </engines>
+
+  <dependency id="kapsel-plugin-logon"/>
+
+  <platform name="android">
+    <source-file src="android/libs/FederationProvider-3.15.6.aar" target-dir="libs"/>
+	<source-file src="android/libs/Federation-3.15.6.aar" target-dir="libs"/>	
+	<source-file src="android/libs/jdeferred-android-aar-1.2.4.aar" target-dir="libs"/>
+	<source-file src="android/libs/jdeferred-core-1.2.4.jar" target-dir="libs"/>
+	<source-file src="android/libs/slf4j-api-1.7.2.jar" target-dir="libs"/>
+
+    <framework custom="true" src="android/federationprovider.gradle" type="gradleReference"/>
+
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+      <meta-data android:name="com.sap.federationprovider" android:value="com.sap.smp.client.android.federationprovider.FederationProvider"/>
+    </config-file>
+  </platform>
+
+  <platform name="ios">
+    <source-file src="ios/libs/libFederation.a" framework="true"/>
+    <source-file src="ios/libs/libFederationProvider.a" framework="true"/>
+    <resource-file src="ios/bundles/FederationProvider.bundle" />
+
+    <config-file target="*-Info.plist" parent="com.sap.federationprovider">
+      <string>FederationProvider</string>
+    </config-file>
+  </platform>
+</plugin>

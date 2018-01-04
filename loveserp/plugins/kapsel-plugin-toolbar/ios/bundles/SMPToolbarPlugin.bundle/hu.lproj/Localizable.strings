@@ -1,0 +1,15 @@
+﻿/* XBUT: Back button on toolbar */
+"SMPToolbarPluginBackText" = "Vissza";
+
+/* XBUT: Refresh button on toolbar */
+"SMPToolbarPluginRefreshText" = "Frissítés";
+
+/* XBUT: Home button on toolbar */
+"SMPToolbarPluginHomeText" = "Kezdő oldal";
+
+/* XMIT: Help entry on menu */
+"SMPToolbarPluginHelpText" = "Súgó";
+
+/* XBUT: Cancel button */
+"SMPToolbarPluginBtnCancel" = "Mégse";
+

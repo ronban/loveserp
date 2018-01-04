@@ -1,0 +1,4 @@
+﻿{
+    "_comment": "The urls array describes the urls, which are allowed to use all the plugins",
+    "urls": []
+}

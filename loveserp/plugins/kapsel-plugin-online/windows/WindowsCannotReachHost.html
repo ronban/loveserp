@@ -1,0 +1,120 @@
+﻿<html>
+<head profile="http://www.w3.org/2005/10/profile">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, height=device-height, width=device-width" />
+
+    <link rel="icon"
+          type="image/png"
+          href="img/logo.png" />
+
+    <style type="text/css">
+        body {
+            margin: 1em;
+            font-size: 1.1em;
+        }
+
+
+        div#errorSection {
+            padding: 0.3em 0.3em 0.5em 0.3em;
+        }
+
+        div#errorTitle {
+            font-size: larger;
+            margin-bottom: 1em;
+            font-weight: bold;
+        }
+
+        div#errorSection > div#errorDescription {
+        }
+
+        div#errorTitle > img {
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        div#helpSection {
+            padding: 0.3em 0.3em 0.5em 0.3em;
+            font-weight: normal;
+            font-size: smaller;
+        }
+
+            div#helpSection > div#title {
+                margin-bottom: 0.5em;
+                margin-top: 0.5em;
+            }
+
+        #hostname {
+            margin: 2px;
+        }
+
+        div#footerSection {
+            padding: 0.3em 0.3em 0.5em 0.3em;
+            font-size: x-small;
+            font-style: italic;
+        }
+    </style>
+    <!-- load jquery and sap-ui-core to get localization functionality. -->
+	<script src="resources/sap-ui-core.js" type="text/javascript"
+			id="sap-ui-bootstrap"
+            data-sap-ui-preload=""
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-libs="sap.m">
+	</script>
+
+    <script type="text/javascript" src="errorHandling.js" > </script>
+    <script type="text/javascript">
+
+        function init() {
+            var params = getGETParameters();
+            var nonetwork = params['nonetwork'];
+            buildErrorPageContents(nonetwork);
+        }
+
+        function buildErrorPageContents(isNoNetwork) {
+            //var errorType = decodeURIComponent(getErrorType());
+
+            if (isNoNetwork == true) {
+                document.getElementById("errorTitle").innerHTML += getLocalizedString("NETWORK_ERROR_NO_NETWORK_TITLE");
+                document.getElementById("errorDescription").innerHTML = getLocalizedString("NETWORK_ERROR_NO_NETWORK_DESCRIPTION");
+            }
+            else {
+                document.getElementById("errorTitle").innerHTML += getLocalizedString("CANNOT_REACH_HOST_TITLE");
+                document.getElementById("errorDescription").innerHTML = getLocalizedString("CANNOT_REACH_HOST_DESCRIPTION");
+            }
+            document.getElementById("title").innerHTML = getLocalizedString("CANNOT_REACH_HOST_TRY_THE_FOLLOWING");
+            document.getElementById("spelling").innerHTML = getLocalizedString("CANNOT_REACH_HOST_SPELLING");
+            document.getElementById("network").innerHTML = getLocalizedString("CANNOT_REACH_HOST_NETWORK");
+            document.getElementById("administrator").innerHTML = getLocalizedString("CANNOT_REACH_HOST_ADMINISTRATOR");
+        }
+    </script>
+
+</head>
+<body onload="init()">
+
+
+    <div id='errorSection'>
+
+        <div id='errorTitle'>
+            <img src="img/logo.png" height="30px" width="30px" />
+
+        </div>
+
+        <div id='errorDescription'></div>
+
+    </div>
+    <hr />
+    <div id='helpSection'>
+        <div id='title'></div>
+        <ol>
+            <li id="spelling"></li>
+            <li id="network"></li>
+            <li id="administrator"></li>
+        </ol>
+    </div>
+
+    <hr />
+    <div id='footerSection'>
+        <span id='pageAddressSpan'></span>
+    </div>
+</body>
+</html>

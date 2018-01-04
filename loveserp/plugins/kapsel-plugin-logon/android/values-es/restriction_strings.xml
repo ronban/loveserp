@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"ID aplicación"</string>
+    <string name="restriction_description_appID">"El ID de aplicación utilizado para identificar la aplicación en el almacén de seguridad de datos. Si utiliza SMP, debería coincidir con el ID de aplicación de la aplicación de destino. Tenga en cuenta que este valor es distinto del nombre de paquete que se utiliza normalmente para identificar su aplicación en las tiendas de aplicaciones."</string>
+
+    <string name="restriction_title_fioriURL">"URL del servidor SAP Fiori"</string>
+    <string name="restriction_description_fioriURL">"El URL completo de la aplicación de destino. Si la aplicación no utiliza SMP, irá directamente a este URL cuando finalice el inicio de sesión. Si la aplicación sí utiliza SMP, este URL se analiza sintácticamente y se utiliza de la siguiente manera: 1. El esquema de URL (que debe ser HTTP o HTTPS) determina el valor inicial del indicador \'https\' en el diálogo de registro. De forma similar, el host y el puerto en el URL determinan los valores iniciales correspondientes en el diálogo de registro, pero si no se ha especificado otro, el puerto tendrá el valor estándar 443. 2. El sufijo de URL (el resto detrás del host y el puerto) se añade al URL en el que se registra el usuario. Aunque es probable que sean iguales que el esquema, host y puerto del punto 1., el usuario puede modificar estos valores. Sin embargo, el sufijo no se puede modificar. Si está utilizando SMP, especifique el esquema, host y puerto de su servidor de SMP, seguido del sufijo del punto de acceso para Fiori. Por ejemplo: \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"Nombre de aplicación"</string>
+     <string name="restriction_description_appName">"Una propiedad opcional que se utiliza para personalizar el nombre de aplicación Fiori que aparece en la pantalla de inicio de sesión. Por defecto, el nombre de aplicación es SAP Fiori Client. Si este campo se deja en blanco, se utiliza el valor por defecto."</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"URL del servidor SAP Fiori es un servidor de SMP"</string>
+     <string name="restriction_description_fioriURLIsSMP">"Si está utilizando SMP, defina esto como \"true\" para realizar el registro."</string>
+
+     <string name="restriction_title_prefetch">"Llamar previamente activos web"</string>
+     <string name="restriction_description_prefetch">"Obtiene los activos web de la aplicación SAP Fiori del servidor front-end de SAP Fiori y los descarga en el dispositivo del usuario. Después de la descarga inicial, obtiene y descarga todas las actualizaciones del servidor front-end de SAP Fiori."</string>
+
+    <string name="restriction_title_certificate">"Proveedor de certificados de cliente"</string>
+    <string name="restriction_description_certificate">"Proveedor de certificados de cliente"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"Seleccionar automáticamente el proveedor de certificados de cliente"</string>
+    <string name="restriction_description_autoSelectSingleCert">"Si solo hay un certificado de cliente disponible, seleccionar automáticamente ese certificado para autentificación mutua."</string>
+
+    <string name="restriction_title_communicatorId">"ID de comunicador"</string>
+    <string name="restriction_description_communicatorId">"El ID de comunicador del registro SMP/HCPms. El valor por defecto es REST"</string>
+
+    <string name="restriction_title_keysize">"Tamaño de clave de proveedor de certificados Afaria"</string>
+    <string name="restriction_description_keysize">"Argumento opcional de AfariaCertificateProvider. Este argumento fija la tasa de bits de las claves pública/privada. Si el valor está vacío o no es válido, se fija el valor estándar 2048."</string>
+
+    <string name="restriction_title_idpLogonURL">"URL de inicio de sesión del proveedor de identidades"</string>
+    <string name="restriction_description_idpLogonURL">"URL que vuelve a cargar el inicio de sesión del proveedor de identidades con el nombre de usuario y el código de acceso que se han pasado desde SAP Authenticator para SSO"</string>
+
+    <string name="restriction_title_enableCacheManager">"Activar gestor de caché"</string>
+    <string name="restriction_description_enableCacheManager">"Activa el plug-in Gestor de caché"</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"Grabar credenciales de formulario"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"Permitir que se graben las credenciales de formulario y se rellenen en usos futuros"</string>
+
+    <string name="restriction_title_disablePasscode">"Desactivar pantalla de código de acceso"</string>
+    <string name="restriction_description_disablePasscode">"Si es \"Verdadero\", la pantalla de código de acceso no aparece. Debe ser \"Falso\" si el soporte multiusuario está activado"</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"Política de códigos de acceso: Días de vencimiento"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"La política de códigos de acceso tiene dígitos"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"La política de códigos de acceso tiene letras en minúsculas"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"La política de códigos de acceso tiene letras especiales"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"La política de códigos de acceso tiene letras en mayúsculas"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"Política de códigos de acceso: Valor por defecto permitido"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"Política de códigos de acceso: Timeout de bloqueo"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"Política de códigos de acceso: Longitud mínima"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"Política de códigos de acceso: Mínimo de caracteres únicos"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"Política de códigos de acceso: Límite de reintentos"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"La política de códigos de acceso del almacén de seguridad de datos.Nota: Si utiliza SMP, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"Política de códigos de acceso: Permitir autentificación de huella"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"La política de códigos de acceso del almacén de seguridad de datos. Nota: Si utiliza SAP Mobile Platform, la política de códigos de acceso viene determinada por el servidor."</string>
+
+    <string name="restriction_title_authType">"Tipo de autorización"</string>
+    <string name="restriction_description_authType">"Especificar el tipo de autorización solo para OAuth (como oauth2) o SAML (como saml2.web.post)."</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"Punto de acceso de autorización OAuth"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"El URL que autoriza al usuario."</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"Punto de acceso de token OAuth"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"El URL del que se obtienen los tokens."</string>
+
+    <string name="restriction_title_oauth2.grantType">"Tipo de concesión OAuth"</string>
+    <string name="restriction_description_oauth2.grantType">"El tipo de concesión que se utiliza."</string>
+
+    <string name="restriction_title_oauth2.clientID">"ID de cliente OAuth"</string>
+    <string name="restriction_description_oauth2.clientID">"El ID de cliente que identifica la aplicación."</string>
+</resources>

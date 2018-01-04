@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-apppreferences",
+  "version": "3.15.8",
+  "description": "Kapsel App Preferences Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-apppreferences",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

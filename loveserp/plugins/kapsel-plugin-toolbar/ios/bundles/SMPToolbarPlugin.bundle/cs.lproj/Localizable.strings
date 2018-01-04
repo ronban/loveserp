@@ -1,0 +1,15 @@
+﻿/* XBUT: Back button on toolbar */
+"SMPToolbarPluginBackText" = "Zpět";
+
+/* XBUT: Refresh button on toolbar */
+"SMPToolbarPluginRefreshText" = "Aktualizovat";
+
+/* XBUT: Home button on toolbar */
+"SMPToolbarPluginHomeText" = "Domovská stránka";
+
+/* XMIT: Help entry on menu */
+"SMPToolbarPluginHelpText" = "Nápověda";
+
+/* XBUT: Cancel button */
+"SMPToolbarPluginBtnCancel" = "Zrušit";
+

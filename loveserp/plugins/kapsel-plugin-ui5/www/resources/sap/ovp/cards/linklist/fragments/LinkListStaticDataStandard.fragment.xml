@@ -1,0 +1,94 @@
+<core:FragmentDefinition xmlns:build="sap.build" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ovp="sap.ovp.ui"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1" xmlns:smartlink="sap.ui.comp.navpopover"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m">
+	<HBox id="ovpListRow" class="sapOvpLinkListStandardHBox">
+		<List id="ovpLinkList"
+			class="{= ${ovpCardProperties>/densityStyle} === 'cozy' ? 'sapOvpLinkListStandardPaddingCozy' : 'sapOvpLinkListStandardPaddingCompact' }"
+			showSeparators="None">
+			<items>
+				<template:repeat list="{ovpCardProperties>/staticContent}" var="contentRow">
+					<CustomListItem>
+						<HBox
+							class="{= ${ovpCardProperties>/densityStyle} === 'compact' &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === true &amp;&amp; (!${contentRow>title} || !${contentRow>subTitle}) ? 'sapOvpMarginTopBottom_3dot5' : ( ${ovpCardProperties>/densityStyle} === 'compact' || ${ovpCardProperties>/densityStyle} === 'cozy' ) &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === false &amp;&amp; (!${contentRow>title} || !${contentRow>subTitle}) ? 'sapOvpMarginTopBottom_9' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === true &amp;&amp; (!${contentRow>title}|| !${contentRow>subTitle}) ? 'sapOvpMarginTopBottom_5dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === true &amp;&amp; ${contentRow>title} &amp;&amp; ${contentRow>subTitle} ? 'sapOvpMarginTopBottom_13dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === false &amp;&amp; (!${contentRow>title} || !${contentRow>subTitle}) ? 'sapOvpMarginTopBottom_13dot5' : ${ovpCardProperties>/densityStyle} === 'cozy' &amp;&amp; ${path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'} === false &amp;&amp; ${contentRow>title} &amp;&amp; ${contentRow>subTitle} ? 'sapOvpMarginTopBottom_15dot5' : 'sapOvpMarginTopBottom_9dot5'}">
+							<template:if test="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.isImageUrlStaticData'}">
+								<template:then>
+									<VBox class="sapOvpLinkListItem sapUiSmallMarginBegin">
+										<template:if test="{= ${ovpCardProperties>/densityStyle} === 'cozy'}">
+											<template:then>
+												<FlexBox height="40px">
+													<Image class="sapUiSmallMarginEnd" alt="{contentRow>imageAltText}" tooltip="{contentRow>toolTip}" densityAware="true" width="40px" height="40px"
+														backgroundPosition="center center" mode="Background"
+														src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}"></Image>
+												</FlexBox>
+											</template:then>
+											<template:else>
+												<FlexBox height="40px">
+													<Image class="sapUiSmallMarginEnd" alt="{contentRow>imageAltText}" tooltip="{contentRow>toolTip}" densityAware="true" width="36px" height="36px"
+														backgroundPosition="center center" mode="Background"
+														src="{path: 'contentRow>imageUri', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.formatUrl'}"></Image>
+												</FlexBox>
+											</template:else>
+										</template:if>
+									</VBox>
+								</template:then>
+								<template:elseif test="{contentRow>imageUri}">
+									<VBox class="sapOvpLinkListItem sapUiSmallMarginBegin">
+										<FlexBox height="40px">
+											<core:Icon class="sapUiMediumMarginEnd sapOvpLinkListImageCenter" tooltip="{contentRow>toolTip}" useIconTooltip="false" size="24px" src="{contentRow>imageUri}"/>
+										</FlexBox>
+									</VBox>
+								</template:elseif>
+							</template:if>
+							<!--Action calls a function import-->
+							<template:if test="{contentRow>dataAction}">
+								<template:then>
+									<VBox class="sapOvpLinkListItem">
+										<Link press="onLinkListActionPressLocalData" app:dataAction="{contentRow>dataAction}" text="{contentRow>title}"
+											class="{= ${contentRow>subTitle} || !${contentRow>subTitle} &amp;&amp; !${contentRow>imageUri} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"/>
+										<Label class="sapOvpCardLinkListSubTitle" text="{contentRow>subTitle}"/>
+									</VBox>
+								</template:then>
+								<!--Action for CrossAppNavigation with SemanticObject & action-->
+								<template:elseif test="{= ${contentRow>semanticObject} &amp;&amp; ${contentRow>action} }">
+									<VBox class="sapOvpLinkListItem">
+										<Link press="onLinkListSemanticObjectPressLocalData" 
+											app:contentRowIndex="{path: 'contentRow>', formatter: 'sap.ovp.cards.linklist.AnnotationHelper.contentRowIndex'}" text="{contentRow>title}"
+											class="{= ${contentRow>subTitle} || !${contentRow>subTitle} &amp;&amp; !${contentRow>imageUri} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"/>
+										<Label class="sapOvpCardLinkListSubTitle" text="{contentRow>subTitle}"/>
+									</VBox>
+								</template:elseif>
+								<!--Action for CrossAppNavigation with SmartLink if only SemanticObject is provided -->
+								<template:elseif test="{= ${contentRow>semanticObject} &amp;&amp; !${contentRow>action} }">
+									<VBox class="sapOvpLinkListItem">
+										<smartlink:SmartLink text="{contentRow>title}"
+										    fieldName="{contentRow>semanticObject}"
+										    semanticObject="{contentRow>semanticObject}"
+											semanticObjectLabel="{contentRow>title}"
+											class="{= ${contentRow>subTitle} || !${contentRow>subTitle} &amp;&amp; !${contentRow>imageUri} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}"/>
+										<Label class="sapOvpCardLinkListSubTitle" text="{contentRow>subTitle}"/>
+									</VBox>
+								</template:elseif>									
+								<!--Action for navigation to external target-->
+								<template:else>
+									<VBox class="sapOvpLinkListItem">
+										<Link press="onLinkListItemPressLocalData" app:targetUri="{contentRow>targetUri}" app:openInNewWindow="{contentRow>openInNewWindow}"
+											text="{contentRow>title}"
+											class="{= ${contentRow>subTitle} || !${contentRow>subTitle} &amp;&amp; !${contentRow>imageUri} ? 'sapOvpCardLinkListTitle' : 'sapOvpCardLinkListTitleOnly'}">
+
+                                            <customData>
+                                                <ovp:CustomData key="aria-label" value=" " writeToDom="true" />
+                                                <ovp:CustomData key="role" value="link" writeToDom="true" />
+                                            </customData>
+
+                                        </Link>
+										<Label class="sapOvpCardLinkListSubTitle" text="{contentRow>subTitle}"/>
+									</VBox>
+								</template:else>
+							</template:if>
+						</HBox>
+					</CustomListItem>
+				</template:repeat>
+			</items>
+		</List>
+	</HBox>
+</core:FragmentDefinition>

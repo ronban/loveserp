@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport"
+              content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <script type="text/javascript">
+            if (window.location.href.indexOf("fiorireset=true")>=0){
+                localStorage.clear();
+                sessionStorage.clear();
+            }
+        </script>
+        <title>Fiori Client</title>
+    </head>
+    <body onresize="resizeCanvas()">
+    <div id="progressUI" style="display: none;" class="app">
+        <label id="progressLabel"></label>
+
+        <p></p>
+        <canvas id="progressBar" height="30" style="border:1px solid #000000"></canvas>
+        <p></p>
+        <p><a id="closeConfig" onclick ="cancelDownload();"><button id="cancelButton" style="visibility='hidden'"></button></a></p>
+        <p></p>
+        <label id="statusLabel"></label>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="appConfig.js"></script>
+    <script type="text/javascript">
+            var errorPromptActive = false;
+            var noupdatePromptActive = false;
+            var percent = 0;
+            var messages;
+
+            function resizeCanvas() {
+                var canvas = document.getElementById("progressBar");
+                canvas.width = window.innerWidth * 0.8;
+                var context = canvas.getContext("2d");
+                context.fillStyle = "#029CE2";
+                var progressHeight = context.canvas.height;
+                var progressWidth = context.canvas.width * percent / 100;
+                context.fillRect(0, 0, progressWidth, progressHeight);
+            }
+
+            function cancelDownload() {
+                sap.AppUpdate.cancelDownload();
+                document.getElementById('statusLabel').innerHTML = getResource("PREFETCH_CANCEL_DOWNLOAD_MESSAGE");
+            }
+
+            var initializeAppUpdateListeners = function() {
+                document.addEventListener("resume", function() {
+                    percent = 0;
+                    resizeCanvas();
+                    document.getElementById('statusLabel').innerHTML = '';
+                }, false);
+
+                var canvas = document.getElementById("progressBar");
+                canvas.width = window.innerWidth * 0.8;
+                // don't need these events yet
+                //sap.AppUpdate.addEventListener("checking", function(e){
+                //    console.log("appupdate event checking, info: " + JSON.stringify(e));
+                //});
+                sap.AppUpdate.addEventListener("downloading", function(e){
+                    console.log("appupdate event downloading, info: " + JSON.stringify(e));
+                    document.getElementById("progressUI").style.display = "block";
+                    document.getElementById("progressLabel").innerHTML = getResource("PREFETCH_DOWNLOAD_MESSAGE");
+
+                    document.getElementById("cancelButton").innerHTML = getResource("PREFETCH_CANCEL_DOWNLOAD_BUTTON");
+                    document.getElementById("cancelButton").style.visibility = 'visible';
+
+
+                    var networkState = navigator.connection.type;
+                    if (networkState != Connection.ETHERNET && networkState != Connection.WIFI) {
+                        document.getElementById('statusLabel').innerHTML = getResource("PREFETCH_SLOW_NETWORK");
+                    }
+                });
+                sap.AppUpdate.addEventListener("noupdate", function(e) {
+                    var onConfirmNoUpdate = function (buttonIndex) {
+                        noupdatePromptActive = false;
+                        if (buttonIndex === 1) {
+                            //retry
+                            sap.AppUpdate.update();
+                        } else if (buttonIndex === 2) {
+                            // reset
+                            sap.FioriClient.resetSettings();
+                        }
+                    }
+
+                    if (!noupdatePromptActive) {
+                        noupdatePromptActive = true;
+                        window.navigator.notification.confirm(
+                            getResource("PREFETCH_UPDATE_DOWNLOAD_NOUPDATE_MESSAGE"),
+                            onConfirmNoUpdate,
+                            getResource("PREFETCH_UPDATE_DOWNLOAD_NOUPDATE_TITLE"),
+                            [getResource("PREFETCH_UPDATE_DOWNLOAD_RETRY"), getResource("PREFETCH_UPDATE_DOWNLOAD_RESET")]);
+                    }
+                });
+                sap.AppUpdate.addEventListener("error", function(e) {
+                    var onConfirmError = function (buttonIndex) {
+                        errorPromptActive = false;
+                        if (buttonIndex === 1) {
+                            //retry
+                            sap.AppUpdate.update();
+                        } else if (buttonIndex === 2) {
+                            // reset
+                            sap.FioriClient.resetSettings();
+                        }
+                    }
+
+                    if (!errorPromptActive) {
+                        errorPromptActive = true;
+                        var errorMessage = '';
+                        if (e.statusCode) {
+                            errorMessage += '\n' + 'Status Code: ' + e.statusCode;
+                        }
+                        if (e.statusMessage) {
+                            errorMessage += '\n' + 'Status Message: ' + e.statusMessage;
+                        }
+                        window.navigator.notification.confirm(
+                            getResource("PREFETCH_UPDATE_DOWNLOAD_ERROR_MESSAGE") + errorMessage,
+                            onConfirmError,
+                            getResource("PREFETCH_UPDATE_DOWNLOAD_ERROR_TITLE"),
+                            [getResource("PREFETCH_UPDATE_DOWNLOAD_RETRY"), getResource("PREFETCH_UPDATE_DOWNLOAD_RESET")]);
+                    }
+                });
+
+                sap.AppUpdate.addEventListener("progress", function(e) {
+                    if (e.lengthComputable) {
+                        var newPercent = Math.round(e.loaded / e.total * 100)
+                        // skip drawing if it won't make a difference.
+                        if (newPercent > percent) {
+                            percent = newPercent;
+                            canvas.width = window.innerWidth * 0.8;
+                            var context = canvas.getContext("2d");
+                            context.fillStyle = "#029CE2";
+                            var progressHeight = context.canvas.height;
+                            var progressWidth = context.canvas.width * (e.loaded/e.total);
+                            context.fillRect(0, 0, progressWidth, progressHeight);
+                        }
+                    }
+                });
+                sap.AppUpdate.onupdateready = function() {
+                    console.log("appupdate finished, reload automatically.");
+                    sap.AppUpdate.reloadApp();
+                }
+            }
+
+            function getUserLocale() {
+                var locale;
+
+                // Workaround for Android 2.3.x
+                if (navigator && navigator.userAgent && (androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
+                    locale = androidLang[1];
+                } else {
+                    locale = navigator.userLanguage || navigator.language;
+                }
+
+                locale = locale.replace('-', '_').toLowerCase();
+
+                if (locale.length > 3) {
+                    locale = locale.substring(0, 3) + locale.substring(3).toUpperCase();
+                }
+
+                return locale;
+            }
+
+            function getResource(key) {
+                var resource = messages[key];
+                return resource != null ? resource : key;
+            }
+
+            function getResourceBundle(locale) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.responseText.length > 0) {
+                            messages = parse(xhr.responseText)
+                        } else {
+                            // No properties file found for language_region.
+                            // Trim the locale down to only language
+                            var language = locale.substring(0, locale.indexOf('_'));
+
+                            var xhr2 = new XMLHttpRequest();
+                            xhr2.onreadystatechange = function() {
+                                if (xhr2.readyState === 4) {
+                                    if (xhr2.responseText.length > 0) {
+                                        messages = parse(xhr2.responseText)
+                                    } else {
+                                        // No properties file found for this language.
+                                        // Force language to en
+
+                                        var xhr3 = new XMLHttpRequest();
+                                        xhr3.onreadystatechange = function() {
+                                            if (xhr3.readyState === 4) {
+                                                if (xhr3.responseText.length > 0) {
+                                                    messages = parse(xhr3.responseText)
+                                                }
+                                            }
+                                        }
+                                        xhr3.open("GET",'i18n_en.properties',true);
+                                        xhr3.send();
+                                    }
+                                }
+                            }
+                            xhr2.open("GET",'i18n_' + language + '.properties',true);
+                            xhr2.send();
+                        }
+                    }
+                }
+                xhr.open("GET",'i18n_' + locale + '.properties',true);
+                xhr.send();
+            }
+
+            // -----------------------------------------------------------------------------
+            // The following, with some modifications, was taken from:
+            // https://sapui5.netweaver.ondemand.com/resources/jquery.sap.properties-dbg.js
+
+            var rLines = /(?:^|\r\n|\r|\n)[ \t\f]*/;
+
+            var rEscapes = /(\\u[0-9a-fA-F]{0,4})|(\\.)|(\\$)|([ \t\f]*[ \t\f:=][ \t\f]*)/g;
+
+            var mEscapes = {
+                '\\f' : '\f',
+                '\\n' : '\n',
+                '\\r' : '\r',
+                '\\t' : '\t'
+            };
+
+            var rComments =  /(.*?)([^\\\\][\!|#].*)/;
+
+            function stripCommentOut(line) {
+                var parts = rComments.exec(line);
+                if (parts != null) {
+                    line = parts[1];
+                }
+                return line;
+            }
+
+            function parse(sText) {
+
+                var aLines = sText.split(rLines), // split file into lines
+                    sLine,sKey,sValue,bKey,i,m,iLastIndex;
+
+                mProperties = {};
+
+                for (i = 0; i < aLines.length; i++) {
+                    sLine = aLines[i];
+                    sLine = stripCommentOut(sLine);
+                    // ignore empty lines
+                    if (sLine === "" || sLine.charAt(0) === "#" || sLine.charAt(0) === "!" ) {
+                        continue;
+                    }
+
+                    rEscapes.lastIndex = iLastIndex = 0;
+                    sValue = "";
+                    bKey = true;
+
+                    while ( (m = rEscapes.exec(sLine)) !== null ) {
+                        // handle any raw, unmatched input
+                        if ( iLastIndex < m.index ) {
+                            sValue += sLine.slice(iLastIndex, m.index);
+                        }
+                        iLastIndex = rEscapes.lastIndex;
+                        if ( m[1] ) {
+                            // unicode escape
+                            if ( m[1].length !== 6 ) {
+                                throw new Error("Incomplete Unicode Escape '" + m[1] + "'");
+                            }
+                            sValue += String.fromCharCode(parseInt(m[1].slice(2), 16));
+                        } else if ( m[2] ) {
+                            // special or simple escape
+                            sValue += mEscapes[m[2]] || m[2].slice(1);
+                        } else if ( m[3] ) {
+                            // continuation line marker
+                            sLine = aLines[++i];
+                            rEscapes.lastIndex = iLastIndex = 0;
+                        } else if ( m[4] ) {
+                            // key/value separator
+                            if ( bKey ) {
+                                bKey = false;
+                                sKey = sValue;
+                                sValue = "";
+                            } else {
+                                sValue += m[4];
+                            }
+                        }
+                    }
+                    if ( iLastIndex < sLine.length ) {
+                        sValue += sLine.slice(iLastIndex);
+                    }
+                    if ( bKey ) {
+                        sKey = sValue;
+                        sValue = "";
+                    }
+                    mProperties[sKey] = sValue;
+                }
+                return mProperties;
+            }
+            //------------------------------------------------------------------------------
+
+            getResourceBundle(getUserLocale());
+
+            document.addEventListener("deviceready", function() {
+                if (sap && sap.AppUpdate) {
+                    initializeAppUpdateListeners();
+                }
+            }, false);
+        </script>
+    </body>
+</html>

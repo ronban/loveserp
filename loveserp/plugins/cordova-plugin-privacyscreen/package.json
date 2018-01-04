@@ -1,0 +1,58 @@
+{
+  "_from": "cordova-plugin-privacyscreen@0.3.1",
+  "_id": "cordova-plugin-privacyscreen@0.3.1",
+  "_inBundle": false,
+  "_integrity": "sha1-9N5ZrV/V1ihNJ72XitjaD3OmKd8=",
+  "_location": "/cordova-plugin-privacyscreen",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-privacyscreen@0.3.1",
+    "name": "cordova-plugin-privacyscreen",
+    "escapedName": "cordova-plugin-privacyscreen",
+    "rawSpec": "0.3.1",
+    "saveSpec": null,
+    "fetchSpec": "0.3.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-privacyscreen/-/cordova-plugin-privacyscreen-0.3.1.tgz",
+  "_shasum": "f4de59ad5fd5d6284d27bd978ad8da0f73a629df",
+  "_spec": "cordova-plugin-privacyscreen@0.3.1",
+  "_where": "/Users/roney/Downloads/ebf27674/modules/KapselSDK/KapselSDK/apps/fiori_client/loveserp/node_modules",
+  "author": {
+    "name": "Tommy-Carlos Willaims",
+    "email": "tommy@devgeeks.org"
+  },
+  "bugs": {
+    "url": "https://github.com/devgeeks/PrivacyScreenPlugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-privacyscreen",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Secures your app from displaying a screenshot in task switchers under Android and iOS. Keeps sensitive information private.",
+  "homepage": "https://github.com/devgeeks/PrivacyScreenPlugin#readme",
+  "keywords": [
+    "privacy",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-privacyscreen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devgeeks/PrivacyScreenPlugin.git"
+  },
+  "version": "0.3.1"
+}

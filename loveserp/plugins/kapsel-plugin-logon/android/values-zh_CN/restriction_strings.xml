@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"应用标识"</string>
+    <string name="restriction_description_appID">"用于向数据保险箱识别应用的应用标识。 如果使用 SMP，则此项应与目标应用的应用标识一致。 请注意，此值有别于包名称，后者主要用于识别应用商店中的应用。"</string>
+
+    <string name="restriction_title_fioriURL">"Fiori 服务器 URL"</string>
+    <string name="restriction_description_fioriURL">"目标应用的完整 URL。 如果应用不使用 SMP，则它会在登录完成后就直接导航至此 URL。 如果应用确实使用 SMP，则会以如下方式解析并使用此 URL： 1. URL 方案（必须为 HTTP 或 HTTPS）确定了注册对话框中 \'https\' 标志的初始值。 同样，URL 中的主机和端口确定了其在注册对话框中相应的初始值，如果未指定端口，则使用缺省值 443。 2. URL 后缀（主机和端口之后的所有内容）会附于用户注册到的 URL 后面。 尽管此项可能与来自 1. 的方案、主机和端口相同，但用户可以更改这些值。 然而，后缀无法更改。 如果使用 SMP，请指定 SMP 服务器的方案、主机和端口，后跟 Fiori 端点的后缀。 例如： \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"应用名称"</string>
+     <string name="restriction_description_appName">"用于定制登录屏幕上所显示 Fiori 应用名称的可选属性。 缺省情况下，应用名称为 SAP Fiori Client。 当此字段为空时会使用缺省值。"</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"Fiori 服务器 URL 是指 SMP 服务器"</string>
+     <string name="restriction_description_fioriURLIsSMP">"如果使用 SMP，则将此项设置为 true 以执行注册。"</string>
+
+     <string name="restriction_title_prefetch">"预取 Web 资产"</string>
+     <string name="restriction_description_prefetch">"从 SAP Fiori 前端服务器获取 SAP Fiori 应用 web 资产，然后将其下载到用户的设备。 初始下载后，可从 SAP Fiori 前端服务器获取并下载任何应用更新。"</string>
+
+    <string name="restriction_title_certificate">"客户端证书提供者"</string>
+    <string name="restriction_description_certificate">"客户端证书提供者"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"自动选择客户端证书提供者"</string>
+    <string name="restriction_description_autoSelectSingleCert">"如果只有一个客户端证书可用，则自动选择该证书进行相互验证。"</string>
+
+    <string name="restriction_title_communicatorId">"通信程序标识"</string>
+    <string name="restriction_description_communicatorId">"用于 SMP/HCPms 注册的通信程序标识。缺省值为 REST。"</string>
+
+    <string name="restriction_title_keysize">"Afaria 证书提供者密钥大小"</string>
+    <string name="restriction_description_keysize">"AfariaCertificateProvider 的可选参数。 此参数用于设置公钥/私钥的位速率。 若值为空或无效，则使用缺省值 2048。"</string>
+
+    <string name="restriction_title_idpLogonURL">"身份提供者登录 URL"</string>
+    <string name="restriction_description_idpLogonURL">"用于重新加载身份提供者登录的 URL，登录用户名/密码传递自 SAP authenticator for SSO。"</string>
+
+    <string name="restriction_title_enableCacheManager">"启用缓存管理器"</string>
+    <string name="restriction_description_enableCacheManager">"启用启用缓存管理器插件。"</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"保存表单凭证"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"允许保存表单凭证并在将来进行预填充。"</string>
+
+    <string name="restriction_title_disablePasscode">"禁用密码屏幕"</string>
+    <string name="restriction_description_disablePasscode">"为真时，不会出现密码屏幕。当启用了多用户支持时，必须为假。"</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"密码策略过期天数"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"密码策略含有数字"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"密码策略含有小写字母"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"密码策略含有特殊字母"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"密码策略含有大写字母"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"允许密码策略缺省"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"密码策略锁定超时值"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"密码策略最小长度"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"密码策略最小唯一字符数"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"密码策略重试限制"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"数据保险箱的密码策略。注：如果使用 SMP，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"密码策略允许进行指纹验证"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"数据保险箱的密码策略。注：如果使用 SAP Mobile Platform，则密码策略由服务器确定。"</string>
+
+    <string name="restriction_title_authType">"权限类型"</string>
+    <string name="restriction_description_authType">"仅为 OAuth（如 oauth2）或 SAML（如 saml2.web.post）指定权限类型。"</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"OAuth 权限端点"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"用于授权用户的 URL。"</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"OAuth 令牌端点"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"用于从中获取令牌的 URL。"</string>
+
+    <string name="restriction_title_oauth2.grantType">"OAuth 准予类型"</string>
+    <string name="restriction_description_oauth2.grantType">"要使用的准予类型。"</string>
+
+    <string name="restriction_title_oauth2.clientID">"OAuth 客户端标识"</string>
+    <string name="restriction_description_oauth2.clientID">"用于识别应用程序的客户端标识。"</string>
+</resources>

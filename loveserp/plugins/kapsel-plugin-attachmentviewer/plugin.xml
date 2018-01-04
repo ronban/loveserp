@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-attachmentviewer"
+    version="3.15.8">
+
+	<name>AttachmentViewer</name>
+
+    <description>The Attachment Viewer plugin enhances the viewing of an attachment within a WebView. / Doc URL: https://uacp2.hana.ondemand.com/doc/d9c75eebcfa840c8a4aa4b0e6a8136de/3.0.14/en-US/16f326d1bb294be58649b1ccae174c02.html</description>
+    
+    <author>SAP SE</author>
+    
+    <license>SAP Mobile Platform SDK "License Agreement"</license>
+
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+      <engine name="cordova-ios" version="&gt;=4.3.1" />
+    </engines>
+
+	<dependency id="kapsel-plugin-corelibs" />
+	<dependency id="kapsel-plugin-authproxy" />
+	<dependency id="cordova-plugin-device" />
+	<dependency id="kapsel-plugin-inappbrowser"/>
+	<dependency id="kapsel-plugin-i18n"/>
+	<dependency id="cordova-plugin-dialogs"/>
+
+	<js-module name="AttachmentViewer" src="www/attachmentviewer.js">
+		<clobbers target="sap.AttachmentViewer"/>
+	</js-module>
+
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_cs.properties" src="www/messages_cs.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_it.properties" src="www/messages_it.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_nb.properties" src="www/messages_nb.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_en.properties" src="www/messages_en.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_ar.properties" src="www/messages_ar.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_de.properties" src="www/messages_de.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_es.properties" src="www/messages_es.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_fr.properties" src="www/messages_fr.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_ja.properties" src="www/messages_ja.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_pt.properties" src="www/messages_pt.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_ru.properties" src="www/messages_ru.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_zh_CN.properties" src="www/messages_zh_CN.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_hu.properties" src="www/messages_hu.properties"/>
+    <asset target="plugins/kapsel-plugin-attachmentviewer/www/messages_pl.properties" src="www/messages_pl.properties"/>
+
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="AttachmentHandler">
+				<param name="android-package" value="com.sap.mp.cordova.plugins.attachmentViewer.AttachmentViewer"/>
+				<param name="onload" value="true"/>
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<provider
+				android:name="com.sap.mp.cordova.plugins.attachmentViewer.FileProviderWithWorkaround"
+				android:authorities="$PACKAGE_NAME.KapselAttachmentViewer"
+				android:exported="false"
+				android:grantUriPermissions="true">
+				<meta-data
+					android:name="android.support.FILE_PROVIDER_PATHS"
+					android:resource="@xml/filepaths" />
+			</provider>
+		</config-file>
+
+		<source-file src="android/filepaths.xml" target-dir="res/xml/" />
+
+        <source-file src="android/libs/attachmentviewer-android-3.15.8.aar" target-dir="libs"/>
+         <framework src="android/smp_attachmentviewer.gradle" custom="true" type="gradleReference" />
+        <framework src="com.android.support:support-v4:22.0.0" />
+	</platform>
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+            <feature name="AttachmentHandler">
+                <param name="ios-package" value="SMPAttachmentViewerPlugin"/>
+                <param name="onload" value="true"/>
+			</feature>
+		</config-file>
+
+        <source-file src="ios/libs/libSMPAttachmentViewerPlugin.a" framework="true"/>
+        <resource-file src="ios/AttachmentViewer.storyboard" />
+    </platform>
+
+	<!-- windows universal apps (Windows 8.1, Windows Phone 8.1, Windows 8.0) -->
+    <platform name="windows">
+        <js-module src="windows/downloader.js" name="Downloader">
+        	<clobbers target="sap.AttachmentViewer.Downloader" />
+        </js-module>
+        <js-module src="windows/utils.js" name="Utils">
+        	<clobbers target="sap.AttachmentViewer.Utils" />
+        </js-module>
+        <js-module src="windows/filecleaner.js" name="FileCleaner">
+        	<clobbers target="sap.AttachmentViewer.FileCleaner" />
+        </js-module>
+         <asset src="windows/attachmentviewer.css" target="css/attachmentviewer.css" />
+         <asset src="windows/mimetypes.json" target="mimetypes.json" />
+    </platform>
+</plugin>

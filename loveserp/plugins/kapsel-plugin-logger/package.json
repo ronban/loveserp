@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-logger",
+  "version": "3.15.8",
+  "description": "Kapsel Logger Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-logger",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

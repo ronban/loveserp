@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="kapsel-plugin-multidex"
+    version="3.15.8">
+
+    <name>Multidex</name>
+
+    <engines>
+      <engine name="cordova" version="&gt;=6.5.0" />
+      <engine name="cordova-android" version="&gt;=6.1.2" />
+    </engines>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="android/multidex.gradle" custom="true" type="gradleReference"/>
+        <hook type="after_plugin_install" src="hooks/after_plugin_install/addMultiDexApplication.js"/>
+    </platform>
+</plugin>

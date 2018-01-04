@@ -1,0 +1,20 @@
+{
+  "name": "kapsel-plugin-encryptedstorage",
+  "version": "3.15.8",
+  "description": "Kapsel Encrypted Storage Plugin",
+  "cordova": {
+    "id": "kapsel-plugin-encryptedstorage",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "author": "SAP SE"
+}

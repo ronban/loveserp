@@ -1,0 +1,113 @@
+﻿.webview-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none
+}
+
+.webview-content {
+    min-height: 100%;
+    min-width: 100%
+}
+
+div#progressSection {
+    font-family: "Segoe MDL2 Assets", "Symbols";
+    display: none;
+    position: relative;
+    top: 40%;
+    text-align: center
+}
+
+div#loadingLabel {
+    margin-bottom: 20px;
+    font-size: x-large
+}
+
+div#urlSection {
+    font-size: xx-small;
+}
+
+.messageClass {
+    z-index: 200;
+    background-color: lightgoldenrodyellow;
+    color: black;
+    border-radius: 5px;
+    /* center div */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:80%;
+ 
+    display: block;
+    padding: 8px 16px 8px 16px;
+    font-size: small;
+}
+
+/* Settings page styles */
+
+#settings-section {
+    background-color: white;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.settings-header {
+    padding-left: 20px;
+    padding-top: 12px;
+    display: inline-block;
+    font-size: 20pt;
+    line-height: normal;
+    font-weight: 400;
+    background-color: #009de0;
+    width: 100%;
+    color: white;
+}
+
+.settings-content {
+    margin: 20px;
+    padding-top: 0;
+    margin-bottom: 10px;
+}
+
+.settings-content select {
+    margin-bottom: 12px;
+    margin-left: 0;
+	margin-right: 0;
+    width: 100%;
+}
+
+.settings-content button {
+    width: 100%;
+}
+
+.settings-content textarea {
+    padding: 4px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+}
+
+.settings-label-category {
+    font-size: 11pt;
+    font-weight: 600;
+    line-height: 1.3636;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.settings-label-title {
+    padding-right: 40px;
+    padding-left: 0;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.settings-label-description {
+    margin-bottom: 6px;
+    display: block;
+    font-size: 9pt;
+    line-height: 1.6667;
+}

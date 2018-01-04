@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <string name="restriction_title_appID">"معرف التطبيق"</string>
+    <string name="restriction_description_appID">"معرف التطبيق المستخدم لتحديد تطبيق مخزن البيانات. إذا كنت تستخدم SMP، فيجب أن يكون ذلك المعرف متسقًا مع معرف التطبيق المستهدف. لاحظ أن هذه القيمة مختلفة عن اسم الحزمة، والتي يتم استخدامها بشكل رئيسي لتحديد التطبيق الخاص بك في متاجر التطبيقات."</string>
+
+    <string name="restriction_title_fioriURL">"رابط خادم Fiori"</string>
+    <string name="restriction_description_fioriURL">"الرابط الكامل للتطبيق المستهدف. إذا كان التطبيق الخاص بك لا يستخدم SMP، فسينتقل مباشرة إلى هذا الرابط بمجرد اكتمال تسجيل الدخول. وإذا كان التطبيق الخاص بك يستخدم SMP، فسيتم تحليل هذا الرابط واستخدامه بالطريقة التالية: 1. يحدد مخطط الرابط (الذي يجب أن يكون HTTP أو HTTPS) القيمة الأولية لإشارة \'https\' في مربع حوار التسجيل. وعلى نحو مماثل، يحدد المضيف والمنفذ في الرابط القيم الأولية المقابلة لهما في مربع حوار التسجيل مع تعيين الوضع الافتراضي للمنفذ إلى 443 إذا لم يكن محددًا. 2. يتم إرفاق لاحقة الرابط (كل شيء بعد المضيف والمنفذ) إلى الرابط الذي قام المستخدم بالتسجيل إليه. وعلى الرغم من احتمالية تماثل ذلك مع المخطط والمضيف والمنفذ من 1، إلا أن المستخدم يمتلك فرصة تغيير هذه القيم. لكن لا يمكن تغيير اللاحقة. إذا كنت تستخدم SMP، فحدد المخطط والمضيف والمنفذ لخادم SMP متبوعًا بلاحقة نقطة نهاية Fiori. على سبيل المثال: \'https://my.smp.server:8081/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html\'"</string>
+
+     <string name="restriction_title_appName">"اسم التطبيق"</string>
+     <string name="restriction_description_appName">"خاصية اختيارية مستخدمة لتخصيص اسم تطبيق Fiori الذي يظهر على شاشة تسجيل الدخول. اسم التطبيق هو SAP Fiori Client افتراضيًا. عندما يكون هذا الحقل فارغًا، يتم استخدام الإعداد الافتراضي."</string>
+
+     <string name="restriction_title_fioriURLIsSMP">"رابط خادم Fiori هو خادم SMP"</string>
+     <string name="restriction_description_fioriURLIsSMP">"إذا كنت تستخدم SMP، فقم بتعيين ذلك إلى \'صواب\' لتنفيذ التسجيل."</string>
+
+     <string name="restriction_title_prefetch">"استدعاء مسبق لأصول الويب"</string>
+     <string name="restriction_description_prefetch">"استدعاء أصول ويب تطبيق SAP Fiori من خادم الواجهة الأمامية لتطبيق SAP Fiori وتنزيلها إلى جهاز المستخدم. بعد التنزيل الأولي، استدعاء وتنزيل أية تحديثات للتطبيق من خادم الواجهة الأمامية لتطبيق SAP Fiori."</string>
+
+    <string name="restriction_title_certificate">"مزوِّد شهادة العميل"</string>
+    <string name="restriction_description_certificate">"مزوِّد شهادة العميل"</string>
+
+    <string name="restriction_title_autoSelectSingleCert">"تحديد مزوِّد شهادة العميل تلقائيًا"</string>
+    <string name="restriction_description_autoSelectSingleCert">"في حالة توفر شهادة عميل واحدة فقط، فحدد تلك الشهادة تلقائيًا للمصادقة المتبادلة."</string>
+
+    <string name="restriction_title_communicatorId">"معرف أداة الاتصال"</string>
+    <string name="restriction_description_communicatorId">"معرف أداة الاتصال لتسجيل SAP Mobile Platform/‏SAP HANA Cloud Platform لخدمات الأجهزة المتنقلة. الافتراضي هو REST."</string>
+
+    <string name="restriction_title_keysize">"حجم مفتاح مزوِّد شهادات Afaria"</string>
+    <string name="restriction_description_keysize">"وسيطة اختيارية لموفر شهادات Afaria. تعمل هذه الوسيطة على تعيين معدل البت للمفاتيح العامة/الخاصة. ويتم تعيين القيمة الفارغة أو غير الصالحة إلى 2048 افتراضيًا."</string>
+
+    <string name="restriction_title_idpLogonURL">"رابط تسجيل الدخول إلى مزوِّد الهوية"</string>
+    <string name="restriction_description_idpLogonURL">"رابط يعيد تحميل تسجيل دخول إلى مزود هوية باسم مستخدم/رمز مرور يُمرَّر من SAP Authenticator لتسجيل دخول لمرة واحدة"</string>
+
+    <string name="restriction_title_enableCacheManager">"تمكين مدير التخزين المؤقت"</string>
+    <string name="restriction_description_enableCacheManager">"تمكين البرنامج الإضافي لمدير التخزين المؤقت."</string>
+
+    <string name="restriction_title_allowSavingFormCredentials">"حفظ بيانات اعتماد النموذج"</string>
+    <string name="restriction_description_allowSavingFormCredentials">"السماح بحفظ بيانات اعتماد النموذج وملئها مسبقًا في المستقبل."</string>
+
+    <string name="restriction_title_disablePasscode">"تعطيل شاشة رمز المرور"</string>
+    <string name="restriction_description_disablePasscode">"لا تظهر شاشة رمز المرور عندما تكون صوابًا. يجب أن تكون خطأ عند تمكين الدعم متعدد المستخدمين."</string>
+
+    <string name="restriction_title_passcodePolicyExpirationDays">"أيام انتهاء الصلاحية في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyExpirationDays">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyHasDigits">"تتضمن سياسة رمز المرور أرقام"</string>
+    <string name="restriction_description_passcodePolicyHasDigits">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyHasLowerCaseLetters">"تتضمن سياسة رمز المرور أحرف صغيرة"</string>
+    <string name="restriction_description_passcodePolicyHasLowerCaseLetters">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyHasSpecialLetters">"تتضمن سياسة رمز المرور أحرف خاصة"</string>
+    <string name="restriction_description_passcodePolicyHasSpecialLetters">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyHasUpperCaseLetters">"تتضمن سياسة رمز المرور أحرف كبيرة"</string>
+    <string name="restriction_description_passcodePolicyHasUpperCaseLetters">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyDefaultAllowed">"مسموح بالإعداد الافتراضي في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyDefaultAllowed">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyLockTimeout">"انتهاء مهلة التأمين في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyLockTimeout">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyMinLength">"الحد الأدنى للطول في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyMinLength">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyMinUniqueChars">"الحد الأدنى للأحرف الفريدة في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyMinUniqueChars">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyRetryLimit">"حد إعادة المحاولة في سياسة رمز المرور"</string>
+    <string name="restriction_description_passcodePolicyRetryLimit">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SMP، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_passcodePolicyAllowFingerprint">"سياسة رمز المرور: السماح بمصادقة البصمة"</string>
+    <string name="restriction_description_passcodePolicyAllowFingerprint">"سياسة رمز المرور لمخزن البيانات. ملاحظة: إذا كنت تستخدم SAP Mobile Platform، فسيتم تحديد سياسة رمز المرور بواسطة الخادم."</string>
+
+    <string name="restriction_title_authType">"نوع التفويض"</string>
+    <string name="restriction_description_authType">"حدد نوع التفويض فقط لـ OAuth (كـ OAuth2) أو SAML (كـ saml2.web.post)."</string>
+
+    <string name="restriction_title_oauth2.authorizationEndpoint">"نقطة نهاية تفويض OAuth"</string>
+    <string name="restriction_description_oauth2.authorizationEndpoint">"الرابط الذي يفوِّض المستخدم."</string>
+
+    <string name="restriction_title_oauth2.tokenEndpoint">"نقطة انتهاء الرمز المميز لـ OAuth"</string>
+    <string name="restriction_description_oauth2.tokenEndpoint">"رابط لتحصل على الرموز المميزة من خلاله."</string>
+
+    <string name="restriction_title_oauth2.grantType">"نوع ضمان OAuth"</string>
+    <string name="restriction_description_oauth2.grantType">"نوع الضمان المطلوب استخدامه."</string>
+
+    <string name="restriction_title_oauth2.clientID">"معرف عميل OAuth"</string>
+    <string name="restriction_description_oauth2.clientID">"معرف العميل الذي يحدد التطبيق."</string>
+</resources>
